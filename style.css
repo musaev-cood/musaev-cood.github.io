@@ -1,0 +1,98 @@
+@keyframes rotate {
+            0%{
+                transform: scale(1.5);
+            }
+            25%{
+                transform: rotate(45deg);
+            }
+            50%{
+                transform: rotate(-35deg);
+            }
+            75%{
+                transform: rotate(25deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+        }
+
+.product img.rotate {
+    animation: rotate 0.5s linear;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #CE7B61;
+    color: #fff;
+    text-align: center;
+    padding: 0.3em 0;
+}
+section {
+    max-width: 1000px;
+    margin: 5px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.product {
+    width: 110px;
+    padding: 2px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden; /* Ensure content stays within rounded corners */
+}
+.product-title {
+    position: relative;
+    margin: 0;
+    font-size: 15px;
+    z-index: 2;
+}
+.product-price {
+    position: relative;
+    margin: 0;
+    font-size: 15px;
+    z-index: 2;
+}
+.product img {
+    position: relative;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    max-height: 90px; /* Вы можете регулировать этот параметр по вашему усмотрению */
+    z-index: 1;
+}
+.add-to-cart-button {
+    width: 100%;
+    background-color: #46ba46;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 0.1;
+}
+.add-to-cart-button::before {
+    content: "+";
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+footer {
+    background-color: #CE7B61;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em 0;
+    font-size: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
