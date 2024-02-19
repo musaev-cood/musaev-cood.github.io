@@ -27,10 +27,13 @@ body {
     background-color: #f4f4f4;
 }
 header {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
     background-color: #CE7B61;
     color: #fff;
     text-align: center;
     padding: 0.3em 0;
+    position: relative;
+    z-index: 10;
 }
 section {
     max-width: 1000px;
@@ -57,7 +60,8 @@ section {
 }
 .product-price {
     position: relative;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
     font-size: 15px;
     z-index: 2;
 }
@@ -73,16 +77,14 @@ section {
     width: 100%;
     background-color: #46ba46;
     color: white;
-    padding: 10px 15px;
+    padding: 2px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    line-height: 0.1;
 }
 .add-to-cart-button::before {
     content: "+";
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     margin-right: 5px;
 }
@@ -95,4 +97,26 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+#cart-button {
+    position: fixed;
+    bottom: 50px; /* Adjust as needed */
+    left: 90%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    line-height: 0.1;
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#cart-button img {
+    width: 30px; /* Adjust the size as needed */
+    margin-right: 5px;
 }
