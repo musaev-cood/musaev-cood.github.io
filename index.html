@@ -48,6 +48,7 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
     function AddToCartButton(element) {
+        navigator.vibrate(200);
         const deleteButton = element.nextElementSibling;
         const quantityElement = element.nextElementSibling.nextElementSibling;
 
@@ -61,6 +62,13 @@
             setTimeout(() => {
                 quantityElement.classList.remove('fade-in');
             }, 200);
+
+            deleteButton.style.transition = 'padding 0.2s';
+            setTimeout(() => {
+                deleteButton.style.padding = '.3em 1.25em calc(.3em + 3px)';
+                deleteButton.style.opacity = 1;
+                element.style.padding = '.3em 1em calc(.3em + 3px)';
+            }, 100);
         }else{
             quantityElement.classList.add('bounce');
             setTimeout(() => {
@@ -73,16 +81,27 @@
         }
     }
     function deleteFromCartButton(element) {
+        navigator.vibrate(100);
         const quantityElement = element.nextElementSibling;
+        const addButton = element.previousElementSibling;
 
         let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
         quantityElement.textContent = Math.max(0, currentQuantity - 1).toString();
+
         if (currentQuantity <= 1) {
-            element.style.display = 'none';
             quantityElement.classList.add('fade-out');
+
+            addButton.style.transition = 'padding 0.15s';
+            element.style.transition = 'padding 0.15s';
+            element.style.transition = 'opacity 0.2s';
+
+            element.style.padding = '.3em 0.1em calc(.3em + 3px)';
+            element.style.opacity = 0;
+            addButton.style.padding = '.3em 3em calc(.3em + 3px)';
             setTimeout(() => {
                 quantityElement.style.display = 'none';
                 quantityElement.classList.remove('fade-out');
+                element.style.display = 'none';
             }, 150); // Duration of the fade-out animation
         }
     }
