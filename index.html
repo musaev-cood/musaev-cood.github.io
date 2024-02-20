@@ -48,9 +48,7 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
     function AddToCartButton(element) {
-        window.navigator.vibrate([
-          100, 30, 100, 30, 100, 200, 200, 30, 200, 30, 200, 200, 100, 30, 100, 30, 100,
-        ]);
+        navigator.vibrate(30);
         const deleteButton = element.nextElementSibling;
         const quantityElement = element.nextElementSibling.nextElementSibling;
 
@@ -83,9 +81,7 @@
         }
     }
     function deleteFromCartButton(element) {
-        window.navigator.vibrate([
-          100, 30, 100, 30, 100, 200, 200, 30, 200, 30, 200, 200, 100, 30, 100, 30, 100,
-        ]);
+        navigator.vibrate(30);
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
 
