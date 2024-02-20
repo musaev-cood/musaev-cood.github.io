@@ -75,8 +75,6 @@
             }, 100);
         }
 
-        navigator.vibrate(50);
-
         if (currentQuantity<9){
             quantityElement.textContent = currentQuantity + 1;
         }
@@ -103,8 +101,6 @@
                 quantityElement.classList.remove('fade-out');
                 element.style.display = 'none';
             }, 150); // Duration of the fade-out animation
-        }else{
-            navigator.vibrate(50);
         }
     }
     function rotateAnimation(element) {
