@@ -76,7 +76,7 @@
         }
         element.addEventListener('click', () => {
             if ('vibrate' in navigator) {
-                navigator.vibrate(50);
+                navigator.vibrate(200);
             }
         });
 
@@ -106,6 +106,12 @@
                 quantityElement.classList.remove('fade-out');
                 element.style.display = 'none';
             }, 150); // Duration of the fade-out animation
+        }else{
+            element.addEventListener('click', () => {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(200);
+            }
+        });
         }
     }
     function rotateAnimation(element) {
