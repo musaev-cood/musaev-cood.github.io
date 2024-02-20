@@ -74,6 +74,11 @@
                 quantityElement.classList.remove('bounce');
             }, 100);
         }
+        element.addEventListener('click', () => {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+        });
 
         if (currentQuantity<9){
             quantityElement.textContent = currentQuantity + 1;
