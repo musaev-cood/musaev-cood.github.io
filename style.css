@@ -106,7 +106,7 @@ section {
 .add-to-cart-button {
     font-weight: 800;
     color: white;
-    padding: .5em 1.2em calc(.5em + 3px);
+    padding: .7em 1.4em calc(.7em + 3px);
     border-radius: 15px;
     background: rgb(34,199,129);
     box-shadow: 0 -3px rgb(53,167,110) inset;
@@ -115,7 +115,7 @@ section {
 .delete-to-cart-button {
     font-weight: 800;
     color: white;
-    padding: .5em 1.35em calc(.5em + 3px);
+    padding: .7em 1.55em calc(.7em + 3px);
     border-radius: 15px;
     background: rgb(199, 34, 34);
     box-shadow: 0 -3px rgb(167, 53, 53) inset;
