@@ -76,12 +76,14 @@
             }, 100);
         }
 
+        navigator.vibrate(50);
+
         if (currentQuantity<9){
             quantityElement.textContent = currentQuantity + 1;
         }
     }
     function deleteFromCartButton(element) {
-        navigator.vibrate(30);
+        navigator.vibrate(100);
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
 
@@ -103,6 +105,8 @@
                 quantityElement.classList.remove('fade-out');
                 element.style.display = 'none';
             }, 150); // Duration of the fade-out animation
+        }else{
+            navigator.vibrate(50);
         }
     }
     function rotateAnimation(element) {
