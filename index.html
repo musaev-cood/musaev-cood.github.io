@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>GoyMarket - Ваш магазин продуктов 1.5</title>
+    <title>GoyMarket - Ваш магазин продуктов 1.6</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>GoyMarket - Ваш магазин продуктов 1.5</h1>
+        <h1>GoyMarket - Ваш магазин продуктов 1.6</h1>
     </header>
 
     <section>
@@ -88,6 +88,8 @@
         }
     }
     function deleteFromCartButton(element) {
+        WebApp.HapticFeedback.impactOccurred("light")
+        
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
 
