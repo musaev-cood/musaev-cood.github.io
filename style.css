@@ -65,7 +65,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: var(-tg-theme-bg-color);
+    background: var(--tg-theme-bg-color);
 }
 header {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
@@ -79,8 +79,6 @@ header {
 section {
     max-width: 1000px;
     margin: 5px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -88,11 +86,15 @@ section {
 .product {
     position: relative;
     width: 110px;
-    padding: 2px;
+    padding: 5px;
+    background: white;
+    border-radius: 15px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
     overflow: hidden; /* Ensure content stays within rounded corners */
+    box-shadow: -3px -2px rgb(65, 65, 65) inset;
+
 }
 .product-title {
     position: relative;
