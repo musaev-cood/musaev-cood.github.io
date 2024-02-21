@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>GoyMarket - Ваш магазин продуктов</title>
+    <title>GoyMarket - Ваш магазин продуктов 1.1</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -51,7 +51,7 @@
     var WebApp = window.Telegram.WebApp;
     var MainButton = WebApp.MainButton;
     MainButton.show();
-    
+
     function AddToCartButton(element) {
         WebApp.HapticFeedback()
         const deleteButton = element.nextElementSibling;
@@ -91,7 +91,6 @@
         }
     }
     function deleteFromCartButton(element) {
-        WebApp.HapticFeedback()
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
 
