@@ -124,6 +124,14 @@
             }, 100);
         }
     }
+    const colors = [--tg-theme-bg-color, --tg-theme-text-color, --tg-theme-hint-color, --tg-theme-link-color, --tg-theme-button-color];
+    let colorIndex = 0;
+
+    function showCart(){
+        document.body.style.backgroundColor = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }
+
     function rotateAnimation(element) {
         let clickedElement = event.target;
 
