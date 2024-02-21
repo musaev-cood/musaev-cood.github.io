@@ -13,10 +13,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<!--    <header>-->
-<!--        <h1>GoyMarket - Ваш магазин продуктов</h1>-->
-<!--    </header>-->
     <div class="container">
+        <header>
+            <h1>GoyMarket - Ваш магазин продуктов!</h1>
+        </header>
         <div class="inner">
 
             <div class="product" onclick="rotateAnimation(this)">
@@ -185,24 +185,28 @@
 
         if (currentQuantity <= 1) {
             quantityElement.classList.add('fade-out');
+            setTimeout(() => {
+                    quantityElement.classList.remove('fade-out');
+                    quantityElement.style.display = 'none';
+            }, 100);
+
             addButton.style.transition = 'padding 0.15s';
+
             element.style.transition = 'padding 0.15s';
             element.style.transition = 'opacity 0.2s';
 
             element.style.display = 'none';
-            addButton.style.fontWeight = 800;
-            element.style.padding = '.3em 0.1em calc(.3em + 3px)';
             element.style.opacity = 0;
-            addButton.style.padding = '.3em 3em calc(.3em + 3px)';
+            element.style.padding = '.3em 0.1em calc(.3em + 3px)';
 
+            addButton.style.fontWeight = 800;
+            addButton.style.padding = '.3em 3em calc(.3em + 3px)';
             setTimeout(() => {
-                setTimeout(() => {
-                    addButton.textContent = "ДОБАВИТЬ";
-                    quantityElement.classList.remove('fade-out');
-                    quantityElement.style.display = 'none';
-                }, 100);
                 addButton.style.padding = '.3em 0.7em calc(.3em + 3px)';
             }, 50);
+            setTimeout(() => {
+                addButton.textContent = "ДОБАВИТЬ";
+            }, 100);
 
         }else{
             quantityElement.classList.add('bounce-out');
