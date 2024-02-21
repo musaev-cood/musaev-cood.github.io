@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>GoyMarket - Ваш магазин продуктов 1.1</title>
+    <title>GoyMarket - Ваш магазин продуктов 1.2</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>GoyMarket - Ваш магазин продуктов 1.1</h1>
+        <h1>GoyMarket - Ваш магазин продуктов 1.2</h1>
     </header>
 
     <section>
@@ -48,10 +48,7 @@
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-    var WebApp = window.Telegram.WebApp;
-    var MainButton = WebApp.MainButton;
-    MainButton.show();
-
+    let WebApp = window.Telegram.WebApp;
     function AddToCartButton(element) {
         WebApp.HapticFeedback()
         const deleteButton = element.nextElementSibling;
