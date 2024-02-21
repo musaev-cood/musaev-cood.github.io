@@ -7,6 +7,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+
     <header>
         <h1>GoyMarket - Ваш магазин продуктов</h1>
     </header>
@@ -16,7 +17,7 @@
             <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
             <h3 class="product-title">Спрайт</h3>
             <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>+</button>
+            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
             <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
             <div class="quantity" style="display:none;">0</div>
         </div>
@@ -25,7 +26,7 @@
             <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
             <h3 class="product-title">Спрайт</h3>
             <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>+</button>
+            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
             <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
             <div class="quantity" style="display:none;">0</div>
         </div>
@@ -34,7 +35,7 @@
             <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
             <h3 class="product-title">Спрайт</h3>
             <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>+</button>
+            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
             <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
             <div class="quantity" style="display:none;">0</div>
         </div>
@@ -47,7 +48,33 @@
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
+    var WebApp = window.Telegram.WebApp;
+    var MainButton = WebApp.MainButton;
+    var BackButton = WebApp.BackButton;
+    
+    MainButton.show();
+    BackButton.show();
+    
+    MainButton.onClick(function() {
+      WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
+    });
+    WebApp.onEvent('mainButtonClicked', function() {
+      /* also */
+    });
+    
+    BackButton.onClick(function() {
+      WebApp.showAlert("Нет пути назад!");
+      
+      BackButton.hide();
+    });
+    WebApp.onEvent('backButtonClicked', function() {
+      /* also */
+    });
+</script>
+    
+<script>
     function AddToCartButton(element) {
+        navigator.vibrate(30);
         const deleteButton = element.nextElementSibling;
         const quantityElement = element.nextElementSibling.nextElementSibling;
 
@@ -63,28 +90,29 @@
             }, 200);
 
             deleteButton.style.transition = 'padding 0.2s';
+            element.textContent = "+";
+            element.style.fontWeight = 800;
+            element.style.padding = '.3em 3em calc(.3em + 3px)';
+
             setTimeout(() => {
                 deleteButton.style.padding = '.3em 1.25em calc(.3em + 3px)';
                 deleteButton.style.opacity = 1;
                 element.style.padding = '.3em 1em calc(.3em + 3px)';
             }, 100);
+
         }else{
-            quantityElement.classList.add('bounce');
+            quantityElement.classList.add('bounce-in');
             setTimeout(() => {
-                quantityElement.classList.remove('bounce');
+                quantityElement.classList.remove('bounce-in');
             }, 100);
         }
-        element.addEventListener('click', () => {
-            if ('vibrate' in navigator) {
-                navigator.vibrate(200);
-            }
-        });
 
         if (currentQuantity<9){
             quantityElement.textContent = currentQuantity + 1;
         }
     }
     function deleteFromCartButton(element) {
+        navigator.vibrate(100);
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
 
@@ -98,20 +126,25 @@
             element.style.transition = 'padding 0.15s';
             element.style.transition = 'opacity 0.2s';
 
+            element.style.display = 'none';
+            addButton.style.fontWeight = 800;
             element.style.padding = '.3em 0.1em calc(.3em + 3px)';
             element.style.opacity = 0;
             addButton.style.padding = '.3em 3em calc(.3em + 3px)';
             setTimeout(() => {
+                setTimeout(() => {
+                    addButton.textContent = "ДОБАВИТЬ";
+                }, 100);
+                addButton.style.padding = '.3em 0.7em calc(.3em + 3px)';
                 quantityElement.style.display = 'none';
                 quantityElement.classList.remove('fade-out');
-                element.style.display = 'none';
-            }, 150); // Duration of the fade-out animation
+            }, 50);
+
         }else{
-            element.addEventListener('click', () => {
-            if ('vibrate' in navigator) {
-                navigator.vibrate(200);
-            }
-        });
+            quantityElement.classList.add('bounce-out');
+            setTimeout(() => {
+                quantityElement.classList.remove('bounce-out');
+            }, 100);
         }
     }
     function rotateAnimation(element) {
