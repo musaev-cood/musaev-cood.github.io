@@ -1,153 +1,223 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>GoyMarket</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link href="style.css" rel="stylesheet">
-</head>
-<body>
-
-    <header>
-        <h1>GoyMarket - Ваш магазин продуктов</h1>
-    </header>
-
-    <section>
-        <div class="product" onclick="rotateAnimation(this)">
-            <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
-            <h3 class="product-title">Спрайт</h3>
-            <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
-            <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
-            <div class="quantity" style="display:none;">0</div>
-        </div>
-
-        <div class="product" onclick="rotateAnimation(this)">
-            <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
-            <h3 class="product-title">Спрайт</h3>
-            <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
-            <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
-            <div class="quantity" style="display:none;">0</div>
-        </div>
-
-        <div class="product" onclick="rotateAnimation(this)">
-            <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
-            <h3 class="product-title">Спрайт</h3>
-            <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
-            <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
-            <div class="quantity" style="display:none;">0</div>
-        </div>
-    </section>
-
-    <footer>
-        <button id="cart-button" onclick="showCart()"> <img src="https://cdn-icons-png.flaticon.com/512/15/15278.png" alt="Shopping Cart"></button>
-        <p>&copy; 2024 GoyMarket. V1.1. Все права защищены.</p>
-    </footer>
-
-<script>
-    let WebApp = window.Telegram.WebApp;
-    function AddToCartButton(element) {
-        WebApp.HapticFeedback.impactOccurred("rigid")
-        const deleteButton = element.nextElementSibling;
-        const quantityElement = element.nextElementSibling.nextElementSibling;
-
-        deleteButton.style.display = 'inline-block';
-        quantityElement.style.display = 'inline-block';
-
-        let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
-
-        if (currentQuantity === 0){
-            quantityElement.classList.add('fade-in');
-            setTimeout(() => {
-                quantityElement.classList.remove('fade-in');
-            }, 200);
-
-            deleteButton.style.transition = 'padding 0.2s';
-            element.textContent = "+";
-            element.style.fontWeight = 800;
-            element.style.padding = '.3em 3em calc(.3em + 3px)';
-
-            setTimeout(() => {
-                deleteButton.style.padding = '.3em 1.25em calc(.3em + 3px)';
-                deleteButton.style.opacity = 1;
-                element.style.padding = '.3em 1em calc(.3em + 3px)';
-            }, 100);
-
-        }else{
-            quantityElement.classList.add('bounce-in');
-            setTimeout(() => {
-                quantityElement.classList.remove('bounce-in');
-            }, 100);
-        }
-
-        if (currentQuantity<9){
-            quantityElement.textContent = currentQuantity + 1;
-        }
-    }
-    function deleteFromCartButton(element) {
-        WebApp.HapticFeedback.impactOccurred("light")
-
-        const quantityElement = element.nextElementSibling;
-        const addButton = element.previousElementSibling;
-
-        let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
-        quantityElement.textContent = Math.max(0, currentQuantity - 1).toString();
-
-        if (currentQuantity <= 1) {
-            quantityElement.classList.add('fade-out');
-
-            addButton.style.transition = 'padding 0.15s';
-            element.style.transition = 'padding 0.15s';
-            element.style.transition = 'opacity 0.2s';
-
-            element.style.display = 'none';
-            addButton.style.fontWeight = 800;
-            element.style.padding = '.3em 0.1em calc(.3em + 3px)';
-            element.style.opacity = 0;
-            addButton.style.padding = '.3em 3em calc(.3em + 3px)';
-            setTimeout(() => {
-                setTimeout(() => {
-                    addButton.textContent = "ДОБАВИТЬ";
-                }, 100);
-                addButton.style.padding = '.3em 0.7em calc(.3em + 3px)';
-                quantityElement.style.display = 'none';
-                quantityElement.classList.remove('fade-out');
-            }, 50);
-
-        }else{
-            quantityElement.classList.add('bounce-out');
-            setTimeout(() => {
-                quantityElement.classList.remove('bounce-out');
-            }, 100);
-        }
-    }
-    const colors = [--tg-theme-bg-color, --tg-theme-text-color, --tg-theme-hint-color, --tg-theme-link-color, --tg-theme-button-color];
-    let colorIndex = 0;
-
-    function showCart(){
-        document.body.style.backgroundColor = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-    }
-
-    function rotateAnimation(element) {
-        let clickedElement = event.target;
-
-        // Check if the click event originated from the image
-        if (clickedElement.tagName.toLowerCase() === 'img') {
-            let img = element.querySelector('img');
-
-            if (!img.classList.contains('rotate')) {
-                img.classList.add('rotate');
-
-                setTimeout(function () {
-                    img.classList.remove('rotate');
-                }, 500);
+@keyframes rotate {
+            0%{
+                transform: scale(1.5);
+            }
+            25%{
+                transform: rotate(45deg);
+            }
+            50%{
+                transform: rotate(-35deg);
+            }
+            75%{
+                transform: rotate(25deg);
+            }
+            100%{
+                transform: rotate(0deg);
             }
         }
+@keyframes fadeInScale {
+    0%{
+        scale: 0;
+    }50%{
+        scale: 130%;
+    }100%{
+        scale: 100%;
     }
-</script>
-</body>
-</html>
+}
+
+@keyframes fadeOutScale {
+    0%{
+        scale: 100%;
+    }100% {
+        scale: 0;
+    }
+}
+
+@keyframes bounce-in {
+    0%{
+        scale: 100%;
+    }
+    50% {
+        scale: 120%;
+    }
+    100% {
+        scale: 100%;
+    }
+}
+
+@keyframes bounce-out {
+    0%{
+        scale: 100%;
+    }
+    50% {
+        scale: 70%;
+    }
+    100% {
+        scale: 100%;
+    }
+}
+
+.product img.rotate {
+    animation: rotate 0.5s linear;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--tg-theme-bg-color);
+}
+header {
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+    background-color: #CE7B61;
+    color: #fff;
+    text-align: center;
+    padding: 0.3em 0;
+    position: relative;
+    z-index: 10;
+}
+section {
+    max-width: 1000px;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.product {
+    position: relative;
+    width: 110px;
+    padding: 5px;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden; /* Ensure content stays within rounded corners */
+    box-shadow: -3px -2px rgb(65, 65, 65) inset;
+
+}
+.product-title {
+    position: relative;
+    margin: -10px 0 0;
+    font-weight: 600;
+    z-index: 2;
+}
+.product-price {
+    position: relative;
+    margin: 0 0 5px;
+    font-size: 15px;
+    z-index: 2;
+}
+.product img {
+    position: relative;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    max-height: 90px; /* Вы можете регулировать этот параметр по вашему усмотрению */
+    z-index: 1;
+}
+
+.add-to-cart-button {
+    font-weight: 800;
+    color: white;
+    padding: .3em 0.7em calc(.3em + 3px);
+    border-radius: 15px;
+    background: rgb(34,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    transition: 0.2s;
+}
+.delete-to-cart-button {
+    opacity: 0;
+    font-weight: 1000;
+    color: white;
+    padding: .3em 0.1em calc(.3em + 3px);
+    border-radius: 15px;
+    background: rgb(199, 34, 34);
+    box-shadow: 0 -3px rgb(167, 53, 53) inset;
+    transition: 0.2s;
+}
+.add-to-cart-button:hover { background: rgb(53, 167, 110); }
+.add-to-cart-button:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+.delete-to-cart-button:hover { background: rgb(167, 53, 53); }
+.delete-to-cart-button:active {
+  background: rgb(167, 53, 53);
+  box-shadow: 0 3px rgb(147, 33, 33) inset;
+}
+.quantity {
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    right: 5px;
+    font-weight: 1000;
+    color: white;
+    padding: .2em 0.6em calc(.2em + 3px);
+    border-radius: 12px;
+    background: rgb(34,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    display: none;
+
+}
+
+.quantity.fade-in {
+    animation: fadeInScale 0.2s ease-in; /* add fade-out animation */
+}
+.quantity.fade-out {
+    animation: fadeOutScale 0.15s ease-in; /* add fade-out animation */
+}
+
+.quantity.bounce-in {
+    animation: bounce-in 0.1s ease;
+}
+
+.quantity.bounce-out {
+    animation: bounce-out 0.1s ease;
+}
+footer {
+    background-color: #CE7B61;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em 0;
+    font-size: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+#cart-button {
+    position: fixed;
+    bottom: 50px; /* Adjust as needed */
+    left: 90%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    line-height: 0.1;
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#cart-button img {
+    width: 30px;
+    margin-right: 5px;
+}
+
+
+body {
+    user-select: none;
+}
+body {
+    -webkit-user-select: none;
+}
+body {
+    context-menu: none;
+}
+body {
+    -webkit-context-menu: none;
+}
