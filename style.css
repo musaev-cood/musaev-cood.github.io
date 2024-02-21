@@ -57,24 +57,12 @@
     }
 }
 
-
-
 body {
     margin: 0;
     padding: 0;
     font-size: 18px;
     color: black;
     background: #ffffff;
-}
-
-.container{
-    max-width: 380px;
-}
-
-.inner{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 200px
 }
 
 header {
@@ -87,9 +75,20 @@ header {
     z-index: 10;
 }
 
+.container{
+    max-width: 380px;
+}
+
+.inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .product {
+    max-height: 170px;
+    height: auto;
     position: relative;
-    padding: 10px;
+    padding: 0;
     border-radius: 15px;
     text-align: center;
     margin: 3px;
@@ -98,21 +97,6 @@ header {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.product-title {
-    position: relative;
-    margin: -10px 0 0;
-    font-weight: 600;
-    font-size: 14px;
-    font-family: 'Shantell Sans', sans-serif;;
-    z-index: 2;
-}
-.product-price {
-    position: relative;
-    margin: 0 0 5px;
-    font-family: 'Shantell Sans', sans-serif;;
-    font-size: 14px;
-    z-index: 2;
-}
 .product img {
     position: relative;
     max-width: 100%;
@@ -125,15 +109,35 @@ header {
     animation: rotate 0.5s linear;
 }
 
+.product-title {
+    position: relative;
+    margin: -10px 0 0;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Shantell Sans', sans-serif;;
+    z-index: 2;
+}
+
+.product-price {
+    position: relative;
+    margin: 0 0 5px;
+    font-family: 'Shantell Sans', sans-serif;;
+    font-size: 14px;
+    z-index: 2;
+}
+
 .add-to-cart-button {
     font-weight: 800;
     color: white;
     padding: .3em 0.7em calc(.3em + 3px);
+    border: none;
     border-radius: 15px;
     background: rgb(34,199,129);
     box-shadow: 0 -3px rgb(53,167,110) inset;
     transition: 0.2s;
+    margin-bottom: 10px;
 }
+
 .delete-to-cart-button {
     opacity: 0;
     font-weight: 1000;
@@ -144,16 +148,23 @@ header {
     box-shadow: 0 -3px rgb(167, 53, 53) inset;
     transition: 0.2s;
 }
-.add-to-cart-button:hover { background: rgb(53, 167, 110); }
+.add-to-cart-button:hover {
+    background: rgb(53, 167, 110);
+}
+
 .add-to-cart-button:active {
   background: rgb(33,147,90);
   box-shadow: 0 3px rgb(33,147,90) inset;
 }
-.delete-to-cart-button:hover { background: rgb(167, 53, 53); }
+.delete-to-cart-button:hover {
+    background: rgb(167, 53, 53);
+
+}
 .delete-to-cart-button:active {
   background: rgb(167, 53, 53);
   box-shadow: 0 3px rgb(147, 33, 33) inset;
 }
+
 .quantity {
     position: absolute;
     z-index: 2;
