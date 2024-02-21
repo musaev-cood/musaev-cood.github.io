@@ -57,16 +57,26 @@
     }
 }
 
-.product img.rotate {
-    animation: rotate 0.5s linear;
-}
+
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-size: 18px;
+    color: black;
     background: #ffffff;
 }
+
+.container{
+    max-width: 390px;
+}
+
+.inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px
+}
+
 header {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
     background-color: #CE7B61;
@@ -76,27 +86,17 @@ header {
     position: relative;
     z-index: 10;
 }
-section {
-    max-width: 1000px;
-    margin: 5px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+
 .product {
     position: relative;
-    width: 110px;
     padding: 10px;
-    background: rgb(255, 255, 255);
     border-radius: 15px;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+    margin: 3px;
+    overflow: auto;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
-
 
 .product-title {
     position: relative;
@@ -115,11 +115,14 @@ section {
 }
 .product img {
     position: relative;
-    margin-top: 10px;
     max-width: 100%;
     height: auto;
     max-height: 90px; /* Вы можете регулировать этот параметр по вашему усмотрению */
     z-index: 1;
+}
+
+.product img.rotate {
+    animation: rotate 0.5s linear;
 }
 
 .add-to-cart-button {
