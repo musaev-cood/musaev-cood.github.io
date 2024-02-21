@@ -53,6 +53,7 @@
     MainButton.show();
     
     function AddToCartButton(element) {
+        WebApp.HapticFeedback()
         const deleteButton = element.nextElementSibling;
         const quantityElement = element.nextElementSibling.nextElementSibling;
 
@@ -90,6 +91,7 @@
         }
     }
     function deleteFromCartButton(element) {
+        WebApp.HapticFeedback()
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
 
