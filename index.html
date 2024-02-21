@@ -13,44 +13,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+<!--    <header>-->
+<!--        <h1>GoyMarket - Ваш магазин продуктов</h1>-->
+<!--    </header>-->
+    <div class="container">
+        <div class="inner">
 
-    <header>
-        <h1>GoyMarket - Ваш магазин продуктов</h1>
-    </header>
-
-    <section>
-        <div class="product" onclick="rotateAnimation(this)">
+            <div class="product" onclick="rotateAnimation(this)">
             <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
             <h3 class="product-title">Спрайт</h3>
             <p class="product-price">32 ₽</p>
             <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
             <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
             <div class="quantity" style="display:none;">0</div>
-        </div>
+            </div>
 
-        <div class="product" onclick="rotateAnimation(this)">
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
             <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
             <h3 class="product-title">Спрайт</h3>
             <p class="product-price">32 ₽</p>
             <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
             <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
             <div class="quantity" style="display:none;">0</div>
-        </div>
+            </div>
 
-        <div class="product" onclick="rotateAnimation(this)">
-            <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
-            <h3 class="product-title">Спрайт</h3>
-            <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
-            <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
-            <div class="quantity" style="display:none;">0</div>
-        </div>
-    </section>
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
 
-    <footer>
-        <button id="cart-button" onclick="showCart()"> <img src="https://cdn-icons-png.flaticon.com/512/15/15278.png" alt="Shopping Cart"></button>
-        <p>&copy; 2024 GoyMarket. V1.1. Все права защищены.</p>
-    </footer>
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+    </div>
+
+<!--    <footer>-->
+<!--        <button id="cart-button" onclick="showCart()"> <img src="https://cdn-icons-png.flaticon.com/512/15/15278.png" alt="Shopping Cart"></button>-->
+<!--        <p>&copy; 2024 GoyMarket. V1.1. Все права защищены.</p>-->
+<!--    </footer>-->
 
 <script>
     let WebApp = window.Telegram.WebApp;
@@ -112,7 +140,7 @@
             element.style.padding = '.3em 0.1em calc(.3em + 3px)';
             element.style.opacity = 0;
             addButton.style.padding = '.3em 3em calc(.3em + 3px)';
-            
+
             setTimeout(() => {
                 setTimeout(() => {
                     addButton.textContent = "ДОБАВИТЬ";
