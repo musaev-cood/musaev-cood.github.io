@@ -22,23 +22,35 @@
         scale: 130%;
     }100%{
         scale: 100%;
-              }
+    }
 }
 
 @keyframes fadeOutScale {
-    0% {
-        scale: 100%;;
+    0%{
+        scale: 100%;
     }100% {
         scale: 0;
     }
 }
 
-@keyframes bounce {
+@keyframes bounce-in {
     0%{
         scale: 100%;
     }
-    80% {
+    50% {
         scale: 120%;
+    }
+    100% {
+        scale: 100%;
+    }
+}
+
+@keyframes bounce-out {
+    0%{
+        scale: 100%;
+    }
+    50% {
+        scale: 70%;
     }
     100% {
         scale: 100%;
@@ -104,15 +116,16 @@ section {
 }
 
 .add-to-cart-button {
-    font-weight: 1000;
+    font-weight: 800;
     color: white;
-    padding: .3em 3em calc(.3em + 3px);
+    padding: .3em 0.7em calc(.3em + 3px);
     border-radius: 15px;
     background: rgb(34,199,129);
     box-shadow: 0 -3px rgb(53,167,110) inset;
     transition: 0.2s;
 }
 .delete-to-cart-button {
+    opacity: 0;
     font-weight: 1000;
     color: white;
     padding: .3em 0.1em calc(.3em + 3px);
@@ -153,8 +166,12 @@ section {
     animation: fadeOutScale 0.15s ease-in; /* add fade-out animation */
 }
 
-.quantity.bounce {
-    animation: bounce 0.1s ease;
+.quantity.bounce-in {
+    animation: bounce-in 0.1s ease;
+}
+
+.quantity.bounce-out {
+    animation: bounce-out 0.1s ease;
 }
 footer {
     background-color: #CE7B61;
@@ -185,6 +202,20 @@ footer {
 }
 
 #cart-button img {
-    width: 30px; /* Adjust the size as needed */
+    width: 30px;
     margin-right: 5px;
+}
+
+
+body {
+    user-select: none;
+}
+body {
+    -webkit-user-select: none;
+}
+body {
+    context-menu: none;
+}
+body {
+    -webkit-context-menu: none;
 }
