@@ -88,8 +88,7 @@ header {
     grid-template-columns: 1fr;
     grid-gap: 5px;
     margin: auto;
-    padding: 5px;
-
+    padding: 5px 5px 0 5px;
 }
 
 .Bread{
@@ -107,7 +106,7 @@ header {
 .inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    max-height: 300px;
+    max-height: 500px;
     overflow: auto;
     grid-gap: 6px;
     padding: 5px;
