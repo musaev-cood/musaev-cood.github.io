@@ -76,16 +76,22 @@ header {
     color: #fff;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
     text-shadow: 15px 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 5px;
 }
 
 .container{
     max-width: 380px;
-}
-
-.container{
     display: block;
 }
+
+.category{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    margin: auto;
+    padding: 5px;
+
+}
+
 .Bread{
     width: 100%;
     font-weight: 800;
@@ -97,7 +103,6 @@ header {
     background: rgb(247, 174, 107);
     box-shadow: 0 -3px rgb(194, 141, 88) inset;
     transition: 0.2s;
-    margin-bottom: 5px;
 }
 .inner{
     display: grid;
@@ -105,6 +110,7 @@ header {
     max-height: 300px;
     overflow: auto;
     grid-gap: 6px;
+    padding: 5px;
 }
 
 .product {
@@ -115,7 +121,7 @@ header {
     text-align: center;
     overflow: hidden;
     background: rgb(255, 255, 255);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);*/
 
 }
 
