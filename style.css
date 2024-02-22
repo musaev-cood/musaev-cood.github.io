@@ -98,12 +98,22 @@ header{
 .inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
     overflow: auto;
     grid-gap: 6px;
     padding: 5px 5px 50px 5px;
     border: none;
     background: linear-gradient(to bottom, white 40%, var(--tg-theme-bg-color));
 }
+
+.category-title {
+    text-align: Left;
+    font-size: 50px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
 .product{
     height: 100%;
     position: relative;
