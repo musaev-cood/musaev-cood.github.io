@@ -58,7 +58,7 @@ body{
     padding: 0;
     font-size: 18px;
     color: black;
-    background: #dadada;
+    background: linear-gradient(to bottom, #dadada 90%, black 95%);
 }
 header{
     position: relative;
@@ -103,7 +103,7 @@ header{
     grid-gap: 6px;
     padding: 5px 5px 50px 5px;
     border: none;
-    background: linear-gradient(to bottom, white 40%, var(--tg-theme-bg-color));
+    background: rgba(0, 0, 0, 0)
 }
 
 .category-title {
