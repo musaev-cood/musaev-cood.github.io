@@ -1,21 +1,21 @@
-@keyframes rotate {
-            0%{
-                transform: scale(1.5);
-            }
-            25%{
-                transform: rotate(45deg);
-            }
-            50%{
-                transform: rotate(-35deg);
-            }
-            75%{
-                transform: rotate(25deg);
-            }
-            100%{
-                transform: rotate(0deg);
-            }
-        }
-@keyframes fadeInScale {
+@keyframes rotate{
+    0%{
+        transform: scale(1.5);
+    }
+    25%{
+        transform: rotate(45deg);
+    }
+    50%{
+        transform: rotate(-35deg);
+    }
+    75%{
+        transform: rotate(25deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes fadeInScale{
     0%{
         scale: 0;
     }50%{
@@ -24,16 +24,14 @@
         scale: 100%;
     }
 }
-
-@keyframes fadeOutScale {
+@keyframes fadeOutScale{
     0%{
         scale: 100%;
     }100% {
         scale: 0;
     }
 }
-
-@keyframes bounce-in {
+@keyframes bounce-in{
     0%{
         scale: 100%;
     }
@@ -44,8 +42,7 @@
         scale: 100%;
     }
 }
-
-@keyframes bounce-out {
+@keyframes bounce-out{
     0%{
         scale: 100%;
     }
@@ -56,16 +53,14 @@
         scale: 100%;
     }
 }
-
-body {
+body{
     margin: 0;
     padding: 0;
     font-size: 18px;
     color: black;
     background: #dadada;
 }
-
-header {
+header{
     position: relative;
     padding: 0.5em;
     border-radius: 0 0 15px 15px;
@@ -77,12 +72,10 @@ header {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
     text-shadow: 15px 0 10px rgba(0, 0, 0, 0.5);
 }
-
 .container{
     max-width: 380px;
     display: block;
 }
-
 .category{
     display: grid;
     grid-template-columns: 1fr;
@@ -90,7 +83,6 @@ header {
     margin: auto;
     padding: 5px 5px 0 5px;
 }
-
 .Bread{
     width: 100%;
     font-weight: 800;
@@ -109,9 +101,9 @@ header {
     overflow: auto;
     grid-gap: 6px;
     padding: 5px 5px 50px 5px;
+    background: linear-gradient(to bottom, white 80%, var(--tg-theme-bg-color));
 }
-
-.product {
+.product{
     height: 100%;
     position: relative;
     padding: 0;
@@ -119,46 +111,39 @@ header {
     text-align: center;
     overflow: hidden;
     background: rgb(255, 255, 255);
-    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);*/
-
 }
-
-.product img {
+.product img{
     margin: 5px 0 0;
     position: relative;
     max-width: 100%;
     height: auto;
-    max-height: 90px; /* Вы можете регулировать этот параметр по вашему усмотрению */
+    max-height: 90px;
     z-index: 1;
 }
-
-.product img.rotate {
+.product img.rotate{
     animation: rotate 0.5s linear;
 }
-
-.product-title {
+.product-title{
     position: relative;
-    line-height: 1em; /* Высота строки */
+    line-height: 1em;
     margin: -5px 0 0;
     font-weight: 600;
     font-size: 12px;
     font-family: 'Shantell Sans', sans-serif;
     z-index: 2;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Ограничение числа строк */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-.product-price {
+.product-price{
     position: relative;
     margin: 0 0 5px;
     font-family: 'Shantell Sans', sans-serif;;
     font-size: 14px;
     z-index: 2;
 }
-
-.add-to-cart-button {
+.add-to-cart-button{
     font-weight: 800;
     color: white;
     padding: .3em 0.7em calc(.3em + 3px);
@@ -169,8 +154,7 @@ header {
     transition: 0.2s;
     margin-bottom: 10px;
 }
-
-.delete-to-cart-button {
+.delete-to-cart-button{
     opacity: 0;
     font-weight: 1000;
     color: white;
@@ -182,24 +166,22 @@ header {
     transition: 0.2s;
     margin-bottom: 10px;
 }
-.add-to-cart-button:hover {
+.add-to-cart-button:hover{
     background: rgb(53, 167, 110);
 }
-
-.add-to-cart-button:active {
+.add-to-cart-button:active{
   background: rgb(33,147,90);
   box-shadow: 0 3px rgb(33,147,90) inset;
 }
-.delete-to-cart-button:hover {
+.delete-to-cart-button:hover{
     background: rgb(167, 53, 53);
 
 }
-.delete-to-cart-button:active {
+.delete-to-cart-button:active{
   background: rgb(167, 53, 53);
   box-shadow: 0 3px rgb(147, 33, 33) inset;
 }
-
-.quantity {
+.quantity{
     position: absolute;
     z-index: 2;
     top: 4px;
@@ -212,14 +194,12 @@ header {
     background: rgb(245, 173, 107);
     box-shadow: 0 -3px rgb(193, 140, 88) inset;
     display: none;
-
 }
-
-.quantity.fade-in {
-    animation: fadeInScale 0.2s ease-in; /* add fade-out animation */
+.quantity.fade-in{
+    animation: fadeInScale 0.2s ease-in;
 }
-.quantity.fade-out {
-    animation: fadeOutScale 0.2s ease-out; /* add fade-out animation */
+.quantity.fade-out{
+    animation: fadeOutScale 0.2s ease-out;
 }
 
 .quantity.bounce-in {
@@ -243,8 +223,6 @@ footer {
     font-size: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
-
 #cart-button {
     position: fixed;
     bottom: 50px; /* Adjust as needed */
@@ -259,13 +237,10 @@ footer {
     display: flex;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
 #cart-button img {
     width: 30px;
     margin-right: 5px;
 }
-
-
 body, body * {
     user-select: none;
     -webkit-user-select: none;
