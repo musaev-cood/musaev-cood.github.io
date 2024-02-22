@@ -237,8 +237,8 @@ footer {
     z-index: 10;
     padding: 0.5em;
     border-radius: 15px 15px 0 0;
-    background-color: #40445e;
-    color: #fff;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
     text-align: center;
     font-size: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
