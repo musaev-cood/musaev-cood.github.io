@@ -17,11 +17,16 @@
         <header>
             <h1>GoyMarket - Ваш магазин продуктов!</h1>
         </header>
+        <div class="category">
+            <button class="Bread">Хлеб</button>
+            <button class="Bread">Мясо</button>
+            <button class="Bread">Напитки</button>
+            <button class="Bread">Горшок</button>
+        </div>
         <div class="inner">
-
             <div class="product" onclick="rotateAnimation(this)">
-            <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
-            <h3 class="product-title">Спрайт</h3>
+            <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+            <h3 class="product-title">Кола 2л</h3>
             <p class="product-price">32 ₽</p>
             <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
             <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
@@ -29,8 +34,8 @@
             </div>
 
             <div class="product" onclick="rotateAnimation(this)">
-                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
-                <h3 class="product-title">Спрайт</h3>
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
                 <p class="product-price">32 ₽</p>
                 <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
                 <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
@@ -216,6 +221,10 @@
         }
     }
     function rotateAnimation(element) {
+        WebApp.HapticFeedback.impactOccurred("rigid")
+        WebApp.HapticFeedback.impactOccurred("rigid")
+        WebApp.HapticFeedback.impactOccurred("rigid")
+        WebApp.HapticFeedback.impactOccurred("rigid")
         let clickedElement = event.target;
 
         // Check if the click event originated from the image
