@@ -67,42 +67,60 @@ body {
 
 header {
     position: relative;
-    padding: 0.05em 0;
+    padding: 0.5em;
     border-radius: 0 0 15px 15px;
     z-index: 10;
     text-align: center;
     font-size: 10px;
-    background-color: #CE7B61;
+    background-color: #ec6f60;
     color: #fff;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
     text-shadow: 15px 0 10px rgba(0, 0, 0, 0.5);
-
-
+    margin-bottom: 5px;
 }
 
 .container{
     max-width: 380px;
 }
 
+.container{
+    display: block;
+}
+.Bread{
+    width: 100%;
+    font-weight: 800;
+    font-size: 15px;
+    color: white;
+    padding: .3em 0.7em calc(.3em + 3px);
+    border: none;
+    border-radius: 5px;
+    background: rgb(247, 174, 107);
+    box-shadow: 0 -3px rgb(194, 141, 88) inset;
+    transition: 0.2s;
+    margin-bottom: 5px;
+}
 .inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    max-height: 300px;
+    overflow: auto;
+    grid-gap: 6px;
 }
 
 .product {
-    max-height: 170px;
-    height: auto;
+    height: 100%;
     position: relative;
     padding: 0;
     border-radius: 15px;
     text-align: center;
-    margin: 3px;
-    overflow: auto;
+    overflow: hidden;
     background: rgb(255, 255, 255);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
 }
 
 .product img {
+    margin: 5px 0 0;
     position: relative;
     max-width: 100%;
     height: auto;
@@ -116,11 +134,16 @@ header {
 
 .product-title {
     position: relative;
-    margin: -10px 0 0;
+    line-height: 1em; /* Высота строки */
+    margin: -5px 0 0;
     font-weight: 600;
-    font-size: 14px;
-    font-family: 'Shantell Sans', sans-serif;;
+    font-size: 12px;
+    font-family: 'Shantell Sans', sans-serif;
     z-index: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение числа строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .product-price {
@@ -182,8 +205,8 @@ header {
     color: white;
     padding: .1em 0.4em calc(.1em + 3px);
     border-radius: 12px;
-    background: rgb(199, 191, 34);
-    box-shadow: 0 -3px rgb(167, 148, 53) inset;
+    background: rgb(245, 173, 107);
+    box-shadow: 0 -3px rgb(193, 140, 88) inset;
     display: none;
 
 }
@@ -237,15 +260,9 @@ footer {
 }
 
 
-body {
+body, body * {
     user-select: none;
-}
-body {
     -webkit-user-select: none;
-}
-body {
     context-menu: none;
-}
-body {
     -webkit-context-menu: none;
 }
