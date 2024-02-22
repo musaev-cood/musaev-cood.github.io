@@ -221,19 +221,14 @@
         }
     }
     function rotateAnimation(element) {
-        WebApp.HapticFeedback.impactOccurred("rigid")
-        WebApp.HapticFeedback.impactOccurred("rigid")
-        WebApp.HapticFeedback.impactOccurred("rigid")
-        WebApp.HapticFeedback.impactOccurred("rigid")
         let clickedElement = event.target;
 
         // Check if the click event originated from the image
         if (clickedElement.tagName.toLowerCase() === 'img') {
+            WebApp.HapticFeedback.impactOccurred("rigid")
             let img = element.querySelector('img');
-
             if (!img.classList.contains('rotate')) {
                 img.classList.add('rotate');
-
                 setTimeout(function () {
                     img.classList.remove('rotate');
                 }, 500);
