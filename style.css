@@ -106,10 +106,9 @@ header {
 .inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    max-height: 500px;
     overflow: auto;
     grid-gap: 6px;
-    padding: 5px;
+    padding: 5px 5px 50px 5px;
 }
 
 .product {
@@ -232,17 +231,19 @@ header {
 }
 
 footer {
-    background-color: #CE7B61;
-    color: #fff;
-    text-align: center;
-    padding: 0.5em 0;
-    font-size: 10px;
+    width: 100%;
     position: fixed;
     bottom: 0;
-    width: 100%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     z-index: 10;
+    padding: 0.5em;
+    border-radius: 15px 15px 0 0;
+    background-color: #40445e;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
+
 
 #cart-button {
     position: fixed;
