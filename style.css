@@ -58,7 +58,8 @@ body{
     padding: 0;
     font-size: 18px;
     color: black;
-    background: linear-gradient(to bottom, #dadada 90%, black 95%);
+    background: linear-gradient(to bottom, #dadada 90%, var(--tg-theme-bg-color) 95%);
+    border: none;
 }
 header{
     position: relative;
