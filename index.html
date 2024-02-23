@@ -11,18 +11,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="categories">
         <header>
             <h1>GoyMarket - Ваш магазин продуктов!</h1>
         </header>
-        <div class="category">
-            <button class="Bread">Хлеб</button>
-            <button class="Bread">Мясо</button>
-            <button class="Bread">Напитки</button>
-            <button class="Bread">Горшок</button>
+        <div class="categories">
+            <button class="category-element" onclick="scrollToTarget('Bread')">Для детей</button>
+            <button class="category-element">Сладости</button>
+            <button class="category-element">Чипсы, снеки и попкорн</button>
+            <button class="category-element">Вода, напитки, соки</button>
+            <button class="category-element">Чай, кофе, сахар</button>
+            <button class="category-element">Овощи, фрукты, ягоды</button>
+            <button class="category-element">Мясо, птица, рыба</button>
+            <button class="category-element">Молоко, яйца, сыр</button>
+            <button class="category-element">Хлеб, хлебцы, выпечка</button>
+            <button class="category-element">Макароны, специи, крупы</button>
+            <button class="category-element">Орехи, семечки, сухофрукты</button>
+            <button class="category-element">Консервы, соленья</button>
+            <button class="category-element">Соусы, майонез</button>
+            <button class="category-element">Замороженные продукты</button>
+            <button class="category-element">Бытовая химия</button>
+            <button class="category-element">Зоотовары</button>
+            <button class="category-element">Личная гигиена</button>
+            <button class="category-element">Прочее</button>
         </div>
         <div class="inner">
-            <div class="category-title" style="grid-column: 1 / span 3;">Напитки</div>
+            <div class="category-title" id="Bread" style="grid-column: 1 / span 3;">Напитки</div>
             <div class="product" onclick="rotateAnimation(this)">
             <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
             <h3 class="product-title">Кола 2л</h3>
@@ -356,6 +370,7 @@
 
         <footer>
 <!--            <button id="cart-button" onclick="showCart()"> <img src="https://cdn-icons-png.flaticon.com/512/15/15278.png" alt="Shopping Cart"></button>-->
+            <div id="scrollToCategoriesButton" onclick="scrollToTarget('categories')"></div>
             <p>&copy; 2024 GoyMarket. V1.2. Все права защищены.</p>
         </footer>
         <div class="empty-space"></div>
@@ -454,6 +469,48 @@
                     img.classList.remove('rotate');
                 }, 500);
             }
+        }
+    }
+
+    window.onscroll = function() {
+        const scrollToCategoriesButton = document.getElementById('scrollToCategoriesButton');
+        const shouldShowButton = document.body.scrollTop > 600 || document.documentElement.scrollTop > 600;
+
+        if (shouldShowButton !== scrollToCategoriesButton.classList.contains('visible')) {
+            scrollToCategoriesButton.classList.toggle('visible');
+        }
+    };
+
+    function scrollToTarget(targetId) {
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            const targetPosition = targetElement.offsetTop;
+            const currentPosition = window.scrollY;
+            const distance = targetPosition - currentPosition;
+
+            const duration = 1000; // Продолжительность анимации в миллисекундах
+            let start = null;
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+
+                window.scrollTo(0, easeInOutQuad(progress, currentPosition, distance, duration));
+
+                if (progress < duration) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(step);
         }
     }
 </script>
