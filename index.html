@@ -369,7 +369,6 @@
         </div>
 
         <footer>
-<!--            <button id="cart-button" onclick="showCart()"> <img src="https://cdn-icons-png.flaticon.com/512/15/15278.png" alt="Shopping Cart"></button>-->
             <div id="scrollToCategoriesButton" onclick="scrollToTarget('categories')"></div>
             <p>&copy; 2024 GoyMarket. V1.2. Все права защищены.</p>
         </footer>
@@ -378,6 +377,7 @@
 
 <script>
     let WebApp = window.Telegram.WebApp;
+
     function AddToCartButton(element) {
         WebApp.HapticFeedback.impactOccurred("rigid")
         const deleteButton = element.nextElementSibling;
@@ -416,7 +416,7 @@
         }
     }
     function deleteFromCartButton(element) {
-        WebApp.HapticFeedback.impactOccurred("light")
+        WebApp.HapticFeedback.impactOccurred("rigid")
 
         const quantityElement = element.nextElementSibling;
         const addButton = element.previousElementSibling;
@@ -459,7 +459,6 @@
     function rotateAnimation(element) {
         let clickedElement = event.target;
 
-        // Check if the click event originated from the image
         if (clickedElement.tagName.toLowerCase() === 'img') {
             WebApp.HapticFeedback.impactOccurred("rigid")
             let img = element.querySelector('img');
@@ -483,13 +482,13 @@
 
     function scrollToTarget(targetId) {
         const targetElement = document.getElementById(targetId);
-
+        WebApp.HapticFeedback.impactOccurred("rigid")
         if (targetElement) {
             const targetPosition = targetElement.offsetTop;
             const currentPosition = window.scrollY;
             const distance = targetPosition - currentPosition;
 
-            const duration = 1000; // Продолжительность анимации в миллисекундах
+            const duration = 1000;
             let start = null;
 
             function step(timestamp) {
