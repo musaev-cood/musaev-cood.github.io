@@ -53,6 +53,7 @@
         scale: 100%;
     }
 }
+
 body{
     margin: 0;
     padding: 0;
@@ -77,6 +78,7 @@ header{
     max-width: 380px;
     display: block;
 }
+
 .categories{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -97,7 +99,6 @@ header{
     box-shadow: 0 -3px rgb(194, 141, 88) inset;
     transition: 0.2s;
 }
-
 .category-element:hover{
     background: rgb(193, 140, 88);
     box-shadow: 0 -3px rgb(136, 84, 31) inset;
@@ -108,6 +109,7 @@ header{
   background: rgb(143, 103, 64);
   box-shadow: 0 3px rgb(110, 79, 50) inset;
 }
+
 .inner{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -168,6 +170,7 @@ header{
     font-size: 14px;
     z-index: 2;
 }
+
 .add-to-cart-button{
     font-weight: 800;
     color: white;
@@ -191,6 +194,7 @@ header{
     transition: 0.2s;
     margin-bottom: 10px;
 }
+
 .add-to-cart-button:hover{
     background: rgb(53, 167, 110);
 }
@@ -198,6 +202,7 @@ header{
   background: rgb(33,147,90);
   box-shadow: 0 3px rgb(33,147,90) inset;
 }
+
 .delete-to-cart-button:hover{
     background: rgb(167, 53, 53);
 
@@ -206,6 +211,7 @@ header{
   background: rgb(167, 53, 53);
   box-shadow: 0 3px rgb(147, 33, 33) inset;
 }
+
 .quantity{
     position: absolute;
     z-index: 2;
@@ -226,11 +232,9 @@ header{
 .quantity.fade-out{
     animation: fadeOutScale 0.2s ease-out;
 }
-
 .quantity.bounce-in {
     animation: bounce-in 0.1s ease;
 }
-
 .quantity.bounce-out {
     animation: bounce-out 0.1s ease;
 }
@@ -250,15 +254,17 @@ footer {
 }
 
 #scrollToCategoriesButton {
+    width: 50px;
     position: fixed;
     bottom: 50px;
-    left: 10px;
+    right: 10px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     cursor: pointer;
     border: none;
-    background: transparent;
+    background: #f5ad6b;
+    border-radius: 15px;
 }
 
 #scrollToCategoriesButton.visible {
@@ -268,33 +274,19 @@ footer {
 
 #scrollToCategoriesButton::before {
     content: '\25B2';
-    font-size: 30px; /* Размер шрифта для стрелки */
-    color: #ea6e60;
+    font-size: 40px; /* Размер шрифта для стрелки */
+    color: #ffffff;
 }
 
-/*#cart-button {*/
-/*    position: fixed;*/
-/*    bottom: 50px; !* Adjust as needed *!*/
-/*    left: 90%;*/
-/*    transform: translateX(-50%);*/
-/*    background-color: #ffffff;*/
-/*    padding: 10px 15px;*/
-/*    border: none;*/
-/*    border-radius: 15px;*/
-/*    cursor: pointer;*/
-/*    line-height: 0.1;*/
-/*    display: flex;*/
-/*    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);*/
-/*}*/
-/*#cart-button img {*/
-/*    width: 30px;*/
-/*    margin-right: 5px;*/
-/*}*/
-body, body * {
-    user-select: none;
-    -webkit-user-select: none;
-    context-menu: none;
-    -webkit-context-menu: none;
+#scrollToCategoriesButton:hover{
+    background: rgb(193, 140, 88);
+    box-shadow: 0 -3px rgb(136, 84, 31) inset;
+
+
+}
+#scrollToCategoriesButton:active{
+  background: rgb(143, 103, 64);
+  box-shadow: 0 3px rgb(110, 79, 50) inset;
 }
 
 .empty-space {
@@ -302,4 +294,11 @@ body, body * {
     z-index: 0;
     height: 130px;
     background-color: transparent;
+}
+
+body, body * {
+    user-select: none;
+    -webkit-user-select: none;
+    context-menu: none;
+    -webkit-context-menu: none;
 }
