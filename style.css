@@ -123,11 +123,14 @@ header{
 }
 
 .category-title {
-    text-align: Left;
-    font-size: 30px;
-    font-weight: 800;
-    color: #333;
+    font-size: 25px;
+    font-weight: 600;
+    color: #3a3e59;
+    background: #eae5cd;
+    border-radius: 10px 10px 0 0 ;
+    text-align: center;
     margin: 0;
+    padding:5px;
 }
 
 .product{
@@ -267,6 +270,7 @@ footer {
     cursor: pointer;
     border: none;
     background: #f5ad6b;
+    box-shadow: 0 -3px rgb(154, 109, 69) inset;
     border-radius: 15px;
 }
 
