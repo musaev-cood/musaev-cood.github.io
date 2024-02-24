@@ -61,6 +61,7 @@ body{
     color: black;
     background: linear-gradient(to bottom, #dadada 90%, var(--tg-theme-bg-color) 95%);
     border: none;
+    overflow: hidden;
 }
 header{
     position: relative;
@@ -301,4 +302,5 @@ body, body * {
     -webkit-user-select: none;
     context-menu: none;
     -webkit-context-menu: none;
+    touch-action: manipulation;
 }
