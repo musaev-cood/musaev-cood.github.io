@@ -3,10 +3,12 @@ WebApp.expand()
 WebApp.MainButton.setText('ЗАКАЗАТЬ')
 
 let cart = [];
+const footer = document.querySelector('footer');
 
 function cartDispatcher() {
     if (cart.length > 0){
         WebApp.MainButton.show()
+        footer.style.visibility = 'visible'
     }else{
         WebApp.MainButton.hide()
     }
