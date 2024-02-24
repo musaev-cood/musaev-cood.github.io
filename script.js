@@ -8,15 +8,14 @@ function cartDispatcher() {
     const footer = document.querySelector('footer');
     const scrollToCategoriesButton = document.getElementById('scrollToCategoriesButton');
     const totalSum = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    if (cart.length === 1){
-        WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
-            'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
-
-    }
     if (cart.length > 0 && totalSum > 100){
         footer.style.display = 'none';
         scrollToCategoriesButton.style.bottom = '7px';
         WebApp.MainButton.show()
+    }else if (cart.length === 1){
+        WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
+            'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
+
     }else{
         footer.style.display = 'inline-block';
         scrollToCategoriesButton.style.bottom = '50px';
