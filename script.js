@@ -6,7 +6,8 @@ let cart = [];
 
 const footer = document.querySelector('footer');
 function cartDispatcher() {
-    if (cart.length > 0){
+    const totalSum = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    if (cart.length > 0 && totalSum > 100){
         WebApp.MainButton.show()
         footer.style.visibility = 'hidden'
     }else{
