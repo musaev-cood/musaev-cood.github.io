@@ -13,10 +13,6 @@ function cartDispatcher() {
         footer.style.display = 'none';
         scrollToCategoriesButton.style.bottom = '7px';
         WebApp.MainButton.show()
-    }else if (cart.length>0 && cart[0].quantity===1){
-        WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
-            'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
-
     }else{
         footer.style.display = 'inline-block';
         scrollToCategoriesButton.style.bottom = '50px';
@@ -25,6 +21,10 @@ function cartDispatcher() {
 }
 
 function AddNewProduct(productName, productPrice){
+    if(cart.length === 0){
+            WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
+            'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
+        }
     cart.push({
             name: productName,
             price: productPrice,
