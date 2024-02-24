@@ -62,6 +62,7 @@ body{
     background: linear-gradient(to bottom, #dadada 90%, var(--tg-theme-bg-color) 95%);
     border: none;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 header{
     position: relative;
