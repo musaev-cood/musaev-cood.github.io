@@ -1,20 +1,39 @@
 let WebApp = window.Telegram.WebApp;
 WebApp.expand()
 WebApp.MainButton.setText('ЗАКАЗАТЬ')
+WebApp.showAlert('Привет')
 
 let cart = [];
 
 function cartDispatcher() {
     const footer = document.querySelector('footer');
+    const scrollToCategoriesButton = document.getElementById('scrollToCategoriesButton');
     const totalSum = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    console.log(totalSum > 100)
-    if (cart.length > 0 && totalSum > 400){
+    if (cart.length > 0 && totalSum > 100){
+        footer.style.display = 'none';
+        scrollToCategoriesButton.style.bottom = '7px';
         WebApp.MainButton.show()
-        footer.style.visibility = 'hidden'
     }else{
+        footer.style.display = 'inline-block';
+        scrollToCategoriesButton.style.bottom = '50px';
         WebApp.MainButton.hide()
-        footer.style.visibility = 'visible'
     }
+    console.log(cart)
+}
+
+function AddNewProduct(productName, productPrice){
+    cart.push({
+            name: productName,
+            price: productPrice,
+            quantity: 1
+        });
+}
+function DeleteThisProduct(productName){
+    cart = cart.filter(item => item.name !== productName);
+}
+
+function UpdateQuantity(index, quantityElement){
+    cart[index].quantity = parseInt(quantityElement.textContent)
 }
 
 function AddToCartButton(element) {
@@ -32,11 +51,7 @@ function AddToCartButton(element) {
     let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
 
     if (currentQuantity === 0) {
-        cart.push({
-            name: productName,
-            price: productPrice,
-            quantity: 1
-        });
+        AddNewProduct(productName, productPrice); //AddNewProduct
 
         quantityElement.classList.add('fade-in');
         setTimeout(() => {
@@ -62,7 +77,7 @@ function AddToCartButton(element) {
     const index = cart.findIndex(item => item.name === productName);
     if (index !== -1 && currentQuantity < 9) {
         quantityElement.textContent = currentQuantity + 1;
-        cart[index].quantity = parseInt(quantityElement.textContent);
+        UpdateQuantity(index, quantityElement)
     }
 
     cartDispatcher();
@@ -80,7 +95,7 @@ function deleteFromCartButton(element) {
     quantityElement.textContent = Math.max(0, currentQuantity - 1).toString();
 
     if (currentQuantity <= 1) {
-        cart = cart.filter(item => item.name !== productName);
+        DeleteThisProduct(productName);
 
         quantityElement.classList.add('fade-out');
         setTimeout(() => {
@@ -105,16 +120,15 @@ function deleteFromCartButton(element) {
         setTimeout(() => {
             addButton.textContent = "ДОБАВИТЬ";
         }, 100);
-
     } else {
         const index = cart.findIndex(item => item.name === productName);
         if (index !== -1) {
-            cart[index].quantity = parseInt(quantityElement.textContent)
+            UpdateQuantity(index, quantityElement);
+            quantityElement.classList.add('bounce-out');
+            setTimeout(() => {
+                quantityElement.classList.remove('bounce-out');
+            }, 100);
         }
-        quantityElement.classList.add('bounce-out');
-        setTimeout(() => {
-            quantityElement.classList.remove('bounce-out');
-        }, 100);
     }
     cartDispatcher();
 }
