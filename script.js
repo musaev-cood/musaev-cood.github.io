@@ -1,14 +1,17 @@
 let WebApp = window.Telegram.WebApp;
-WebApp.MainButton();
 WebApp.expand()
+WebApp.MainButton.setText('ЗАКАЗАТЬ')
+
 let cart = [];
-function cartDispatcher(){
-    // if (cart.length > 0){
-    //     WebApp.MainButton.show()
-    // }else{
-    //     WebApp.MainButton.hide()
-    // }
+
+function cartDispatcher() {
+    if (cart.length > 0){
+        WebApp.MainButton.show()
+    }else{
+        WebApp.MainButton.hide()
+    }
 }
+
 function AddToCartButton(element) {
     WebApp.HapticFeedback.impactOccurred("rigid")
 
@@ -23,7 +26,7 @@ function AddToCartButton(element) {
 
     let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
 
-    if (currentQuantity === 0){
+    if (currentQuantity === 0) {
         cart.push({
             name: productName,
             price: productPrice,
@@ -45,20 +48,21 @@ function AddToCartButton(element) {
             deleteButton.style.opacity = 1;
             element.style.padding = '.3em 1em calc(.3em + 3px)';
         }, 100);
-    }else{
+    } else {
         quantityElement.classList.add('bounce-in');
         setTimeout(() => {
             quantityElement.classList.remove('bounce-in');
         }, 100);
     }
     const index = cart.findIndex(item => item.name === productName);
-        if (index !== -1 && currentQuantity<9) {
-            quantityElement.textContent = currentQuantity+1;
-            cart[index].quantity = parseInt(quantityElement.textContent);
-        }
+    if (index !== -1 && currentQuantity < 9) {
+        quantityElement.textContent = currentQuantity + 1;
+        cart[index].quantity = parseInt(quantityElement.textContent);
+    }
 
     cartDispatcher();
 }
+
 function deleteFromCartButton(element) {
     WebApp.HapticFeedback.impactOccurred("rigid")
 
@@ -75,8 +79,8 @@ function deleteFromCartButton(element) {
 
         quantityElement.classList.add('fade-out');
         setTimeout(() => {
-                quantityElement.classList.remove('fade-out');
-                quantityElement.style.display = 'none';
+            quantityElement.classList.remove('fade-out');
+            quantityElement.style.display = 'none';
         }, 100);
 
         addButton.style.transition = 'padding 0.15s';
@@ -97,7 +101,7 @@ function deleteFromCartButton(element) {
             addButton.textContent = "ДОБАВИТЬ";
         }, 100);
 
-    }else{
+    } else {
         const index = cart.findIndex(item => item.name === productName);
         if (index !== -1) {
             cart[index].quantity = parseInt(quantityElement.textContent)
@@ -109,6 +113,7 @@ function deleteFromCartButton(element) {
     }
     cartDispatcher();
 }
+
 function rotateAnimation(element) {
     let clickedElement = event.target;
 
@@ -124,7 +129,7 @@ function rotateAnimation(element) {
     }
 }
 
-window.onscroll = function() {
+window.onscroll = function () {
     const scrollToCategoriesButton = document.getElementById('scrollToCategoriesButton');
     const shouldShowButton = document.body.scrollTop > 600 || document.documentElement.scrollTop > 600;
 
