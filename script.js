@@ -3,6 +3,7 @@ WebApp.expand()
 WebApp.MainButton.setText('ЗАКАЗАТЬ')
 
 let cart = [];
+let isFirstProductAdded = true;
 
 function cartDispatcher() {
     const footer = document.querySelector('footer');
@@ -21,9 +22,10 @@ function cartDispatcher() {
 }
 
 function AddNewProduct(productName, productPrice){
-    if(cart.length === 0){
+    if (isFirstProductAdded) {
             WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
             'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
+            isFirstProductAdded = false;
         }
     cart.push({
             name: productName,
