@@ -12,7 +12,7 @@ function cartDispatcher() {
         footer.style.display = 'none';
         scrollToCategoriesButton.style.bottom = '7px';
         WebApp.MainButton.show()
-    }else if (cart.length === 1){
+    }else if (cart.item.quantity===1){
         WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
             'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
 
