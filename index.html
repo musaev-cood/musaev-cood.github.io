@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>GoyMarket</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,34 +17,36 @@
             <h1>GoyMarket - Ваш магазин продуктов!</h1>
         </header>
         <div class="categories">
-            <button class="category-element" onclick="scrollToTarget('Bread')">Для детей</button>
-            <button class="category-element">Сладости</button>
-            <button class="category-element">Чипсы, снеки и попкорн</button>
-            <button class="category-element">Вода, напитки, соки</button>
-            <button class="category-element">Чай, кофе, сахар</button>
-            <button class="category-element">Овощи, фрукты, ягоды</button>
-            <button class="category-element">Мясо, птица, рыба</button>
-            <button class="category-element">Молоко, яйца, сыр</button>
-            <button class="category-element">Хлеб, хлебцы, выпечка</button>
-            <button class="category-element">Макароны, специи, крупы</button>
-            <button class="category-element">Орехи, семечки, сухофрукты</button>
-            <button class="category-element">Консервы, соленья</button>
-            <button class="category-element">Соусы, майонез</button>
-            <button class="category-element">Замороженные продукты</button>
-            <button class="category-element">Бытовая химия</button>
-            <button class="category-element">Зоотовары</button>
-            <button class="category-element">Личная гигиена</button>
-            <button class="category-element">Прочее</button>
+            <button class="category-element" onclick="scrollToTarget('For_Сhildren')">Для детей</button>
+            <button class="category-element" onclick="scrollToTarget('Sweets')">Сладости</button>
+            <button class="category-element" onclick="scrollToTarget('Chips_snacks_popcorn')">Чипсы, снеки и попкорн</button>
+            <button class="category-element" onclick="scrollToTarget('Water_drinks_juices')">Вода, напитки, соки</button>
+            <button class="category-element" onclick="scrollToTarget('Tea_coffee_sugar')">Чай, кофе, сахар</button>
+            <button class="category-element" onclick="scrollToTarget('Vegetables_fruits_berries')">Овощи, фрукты, ягоды</button>
+            <button class="category-element" onclick="scrollToTarget('Meat_poultry_fish')">Мясо, птица, рыба</button>
+            <button class="category-element" onclick="scrollToTarget('Milk_eggs_cheese')">Молоко, яйца, сыр</button>
+            <button class="category-element" onclick="scrollToTarget('Bread_crackers_bakery')">Хлеб, хлебцы, выпечка</button>
+            <button class="category-element" onclick="scrollToTarget('Pasta_spices_grains')">Макароны, специи, крупы</button>
+            <button class="category-element" onclick="scrollToTarget('Nuts_seeds_dried_fruits')">Орехи, семечки, сухофрукты</button>
+            <button class="category-element" onclick="scrollToTarget('Canned_pickles')">Консервы, соленья</button>
+            <button class="category-element" onclick="scrollToTarget('Sauces_mayonnaise')">Соусы, майонез</button>
+            <button class="category-element" onclick="scrollToTarget('Frozen_products')">Замороженные продукты</button>
+            <button class="category-element" onclick="scrollToTarget('Household_chemistry')">Бытовая химия</button>
+            <button class="category-element" onclick="scrollToTarget('Pet_supplies')">Зоотовары</button>
+            <button class="category-element" onclick="scrollToTarget('Personal_hygiene')">Личная гигиена</button>
+            <button class="category-element" onclick="scrollToTarget('Other')">Прочее</button>
         </div>
+
         <div class="inner">
-            <div class="category-title" id="Bread" style="grid-column: 1 / span 3;">Напитки</div>
+            <div class="category-title" id="For_Сhildren" style="grid-column: 1 / span 3;">Для детей</div>
+
             <div class="product" onclick="rotateAnimation(this)">
-            <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
-            <h3 class="product-title">Кола 2л</h3>
-            <p class="product-price">32 ₽</p>
-            <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
-            <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
-            <div class="quantity" style="display:none;">0</div>
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
             </div>
 
             <div class="product" onclick="rotateAnimation(this)">
@@ -65,14 +68,538 @@
             </div>
         </div>
 
+        <div class="inner">
+            <div class="category-title" id="Sweets" style="grid-column: 1 / span 3;">Сладости</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Chips_snacks_popcorn" style="grid-column: 1 / span 3;">Чипсы, снеки и попкорн</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Water_drinks_juices" style="grid-column: 1 / span 3;">Вода, напитки, соки</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Tea_coffee_sugar" style="grid-column: 1 / span 3;">Чай, кофе, сахар</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Vegetables_fruits_berries" style="grid-column: 1 / span 3;">Овощи, фрукты, ягоды</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Meat_poultry_fish" style="grid-column: 1 / span 3;">Мясо, птица, рыба</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Milk_eggs_cheese" style="grid-column: 1 / span 3;">Молоко, яйца, сыр</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Bread_crackers_bakery" style="grid-column: 1 / span 3;">Хлеб, хлебцы, выпечка</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Pasta_spices_grains" style="grid-column: 1 / span 3;">Макароны, специи, крупы</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Nuts_seeds_dried_fruits" style="grid-column: 1 / span 3;">Орехи, семечки, сухофрукты</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Canned_pickles" style="grid-column: 1 / span 3;">Консервы, соленья</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Sauces_mayonnaise" style="grid-column: 1 / span 3;">Соусы, майонез</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Frozen_products" style="grid-column: 1 / span 3;">Замороженные продукты</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Household_chemistry" style="grid-column: 1 / span 3;">Бытовая химия</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Pet_supplies" style="grid-column: 1 / span 3;">Зоотовары</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Personal_hygiene" style="grid-column: 1 / span 3;">Личная гигиена</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="category-title" id="Other" style="grid-column: 1 / span 3;">Прочее</div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://rskrf.ru/upload/iblock/1f5/us4v5eu27rxmy23hr145phxwznj5dwrt.jpg" alt="Product 3">
+                <h3 class="product-title">Кола 2л</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://i3.stat01.com/2/3093/130922950/afacdb/koka-kola-0-3-l.jpg" alt="Product 3">
+                <h3 class="product-title">Стеклянная кола</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+
+            <div class="product" onclick="rotateAnimation(this)">
+                <img src="https://www.otlichnye-tseny.ru/upload/iblock/f62/iqdhjkrb30c15qpwlrply3gh6jv6f0ey.jpg" alt="Product 3">
+                <h3 class="product-title">Спрайт</h3>
+                <p class="product-price">32 ₽</p>
+                <button class="add-to-cart-button" onclick=AddToCartButton(this)>ДОБАВИТЬ</button>
+                <button class="delete-to-cart-button" style="display:none;" onclick=deleteFromCartButton(this)>-</button>
+                <div class="quantity" style="display:none;">0</div>
+            </div>
+        </div>
+
+        <div id="scrollToCategoriesButton" onclick="scrollToTarget('categories')"></div>
         <footer>
-            <div id="scrollToCategoriesButton" onclick="scrollToTarget('categories')"></div>
-            <p>&copy; 2024 GoyMarket. V1.3. Все права защищены.</p>
+            <p> 2024 GoyMarket. V1.3. Все права защищены.</p>
         </footer>
         <div class="empty-space"></div>
     </div>
-<script
-        src="script.js">
-</script>
 </body>
 </html>
