@@ -1,15 +1,13 @@
 let WebApp = window.Telegram.WebApp;
+WebApp.MainButton();
 WebApp.expand()
 let cart = [];
-WebApp.MainButton();
-WebApp.MainButton.setText("ЗАКАЗАТЬ");
-WebApp.MainButton.show()
 function cartDispatcher(){
-    if (cart.length > 0){
-        WebApp.MainButton.show()
-    }else{
-        WebApp.MainButton.hide()
-    }
+    // if (cart.length > 0){
+    //     WebApp.MainButton.show()
+    // }else{
+    //     WebApp.MainButton.hide()
+    // }
 }
 function AddToCartButton(element) {
     WebApp.HapticFeedback.impactOccurred("rigid")
