@@ -370,14 +370,15 @@
 
         <footer>
             <div id="scrollToCategoriesButton" onclick="scrollToTarget('categories')"></div>
-            <p>&copy; 2024 GoyMarket. V1.2. Все права защищены.</p>
+            <p>&copy; 2024 GoyMarket. V1.3. Все права защищены.</p>
         </footer>
         <div class="empty-space"></div>
     </div>
 
 <script>
     let WebApp = window.Telegram.WebApp;
-
+    WebApp.expand()
+    
     function AddToCartButton(element) {
         WebApp.HapticFeedback.impactOccurred("rigid")
         const deleteButton = element.nextElementSibling;
