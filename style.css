@@ -148,10 +148,10 @@ header{
 .product img{
     margin: 10px;
     max-width: 100%;
+    min-width: 85px;
     height: 100px;
     object-fit: contain;
     object-position: center;
-    border-radius: 4px 4px 0 0;
     z-index: 1;
 }
 .product img.rotate{
@@ -165,8 +165,8 @@ header{
 .product-title{
     margin-bottom: 5px;
     line-height: 1.1em;
-    font-weight: 600;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 8px;
     z-index: 2;
     display: -webkit-box;
     -webkit-line-clamp: 3;
