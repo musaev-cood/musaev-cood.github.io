@@ -22,7 +22,7 @@ function cartDispatcher() {
 }
 
 function AddNewProduct(productName, productPrice){
-    if (isFirstProductAdded && 'ontouchstart' in window || navigator.maxTouchPoints) {
+    if (('ontouchstart' in window || navigator.maxTouchPoints) && isFirstProductAdded) {
             WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
             'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
             isFirstProductAdded = false;
