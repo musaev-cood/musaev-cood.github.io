@@ -22,7 +22,7 @@ function cartDispatcher() {
 }
 
 function AddNewProduct(productName, productPrice){
-    if (isFirstProductAdded) {
+    if (isFirstProductAdded && 'ontouchstart' in window || navigator.maxTouchPoints) {
             WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
             'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
             isFirstProductAdded = false;
@@ -42,7 +42,9 @@ function UpdateQuantity(index, quantityElement){
 }
 
 function AddToCartButton(element) {
-    WebApp.HapticFeedback.impactOccurred("rigid")
+    if ('ontouchstart' in window || navigator.maxTouchPoints){
+        WebApp.HapticFeedback.impactOccurred("rigid")
+    }
 
     const deleteButton = element.nextElementSibling;
     const quantityElement = element.nextElementSibling.nextElementSibling;
@@ -89,7 +91,9 @@ function AddToCartButton(element) {
 }
 
 function deleteFromCartButton(element) {
-    WebApp.HapticFeedback.impactOccurred("rigid")
+    if ('ontouchstart' in window || navigator.maxTouchPoints){
+        WebApp.HapticFeedback.impactOccurred("rigid")
+    }
 
     const quantityElement = element.nextElementSibling;
     const addButton = element.previousElementSibling;
@@ -118,7 +122,7 @@ function deleteFromCartButton(element) {
         element.style.padding = '.3em 0.1em calc(.3em + 3px)';
 
         addButton.style.fontWeight = 800;
-        addButton.style.padding = '.3em 3em calc(.3em + 3px)';
+        addButton.style.padding = '.3em 1.5em calc(.3em + 3px)';
         setTimeout(() => {
             addButton.style.padding = '.3em 0.7em calc(.3em + 3px)';
         }, 50);
@@ -142,7 +146,9 @@ function rotateAnimation(element) {
     let clickedElement = event.target;
 
     if (clickedElement.tagName.toLowerCase() === 'img') {
-        WebApp.HapticFeedback.impactOccurred("rigid")
+        if ('ontouchstart' in window || navigator.maxTouchPoints){
+            WebApp.HapticFeedback.impactOccurred("rigid")
+        }
         let img = element.querySelector('img');
         if (!img.classList.contains('rotate')) {
             img.classList.add('rotate');
