@@ -6,7 +6,7 @@ let cart = [];
 let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
-    WebApp.sendData(cart);
+    WebApp.sendData(cartToString());
     WebApp.showAlert("Вот что в нём хранится " + cartToString() + " и всё)" );
 });
 
