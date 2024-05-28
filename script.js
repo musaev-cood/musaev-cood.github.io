@@ -6,7 +6,7 @@ let cart = [];
 let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
-    let textW = "Dada";
+    let textW = cartToString();
     try {
         WebApp.sendData(textW);
     }catch (error){
