@@ -3,14 +3,6 @@ WebApp.expand()
 MainButton = WebApp.MainButton
 MainButton.setText('ЗАКАЗАТЬ')
 
-MainButton.onClick(function() {
-  WebApp.sendData(cart);
-});
-
-Telegram.WebApp.onEvent('mainButtonClicked', function(){
-	WebApp.sendData("some string that we need to send");
-});
-
 let cart = [];
 let isFirstProductAdded = true;
 
