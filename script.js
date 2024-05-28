@@ -5,18 +5,17 @@ MainButton.setText('ЗАКАЗАТЬ')
 let cart = [];
 let isFirstProductAdded = true;
 
-WebApp.onEvent('mainButtonClicked', function(){
-	//WebApp.sendData(cart);
-	WebApp.showAlert("Вот что в нём хранится " + cartToString() + " и всё)" );
-});
-
-
 function cartToString() {
         return cart.map(item =>
             `Название: ${item.name}, Цена: ${item.price} ₽, Количество: ${item.quantity}`
         ).join('\n');
 }
-	
+
+WebApp.onEvent('mainButtonClicked', function(){
+	//WebApp.sendData(cart);
+	WebApp.showAlert("Вот что в нём хранится " + cartToString() + " и всё)" );
+});
+
 function cartDispatcher() {
     const footer = document.querySelector('footer');
     const scrollToCategoriesButton = document.getElementById('scrollToCategoriesButton');
