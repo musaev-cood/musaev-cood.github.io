@@ -2,14 +2,13 @@ let WebApp = window.Telegram.WebApp;
 WebApp.expand()
 MainButton = WebApp.MainButton
 MainButton.setText('ЗАКАЗАТЬ')
-
-WebApp.onEvent('mainButtonClicked', function(){
-	WebApp.sendData(cart);
-	WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
-});
-
 let cart = [];
 let isFirstProductAdded = true;
+
+WebApp.onEvent('mainButtonClicked', function(){
+	//WebApp.sendData(cart);
+	WebApp.showAlert(cart);
+});
 
 function cartDispatcher() {
     const footer = document.querySelector('footer');
