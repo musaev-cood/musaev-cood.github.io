@@ -7,7 +7,7 @@ let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
 	//WebApp.sendData(cart);
-	WebApp.showAlert(cart);
+	WebApp.showAlert(cart.toString());
 });
 
 function cartDispatcher() {
