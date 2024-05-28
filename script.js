@@ -4,7 +4,7 @@ MainButton = WebApp.MainButton
 MainButton.setText('ЗАКАЗАТЬ')
 
 MainButton.onClick(function() {
-  WebApp.sendData("some string that we need to send"); 
+  WebApp.sendData(cart);
 });
 
 let cart = [];
