@@ -1,10 +1,21 @@
 let WebApp = window.Telegram.WebApp;
-WebApp.expand()
-MainButton = WebApp.MainButton
-MainButton.setText('ЗАКАЗАТЬ')
+WebApp.expand();
+MainButton = WebApp.MainButton;
+MainButton.setText('ЗАКАЗАТЬ');
 let cart = [];
 let isFirstProductAdded = true;
-	
+
+WebApp.onEvent('mainButtonClicked', function(){
+    WebApp.sendData(cart);
+    WebApp.showAlert("Вот что в нём хранится " + cartToString() + " и всё)" );
+});
+
+function cartToString() {
+    return cart.map(item =>
+        `Название: ${item.name}, Цена: ${item.price} ₽, Количество: ${item.quantity}`
+    ).join('\n');
+}
+
 function cartDispatcher() {
     const footer = document.querySelector('footer');
     const scrollToCategoriesButton = document.getElementById('scrollToCategoriesButton');
@@ -33,6 +44,7 @@ function AddNewProduct(productName, productPrice){
             quantity: 1
         });
 }
+
 function DeleteThisProduct(productName){
     cart = cart.filter(item => item.name !== productName);
 }
@@ -129,6 +141,7 @@ function deleteFromCartButton(element) {
         setTimeout(() => {
             addButton.textContent = "ДОБАВИТЬ";
         }, 100);
+
     } else {
         const index = cart.findIndex(item => item.name === productName);
         if (index !== -1) {
@@ -166,7 +179,7 @@ window.onscroll = function () {
     if (shouldShowButton !== scrollToCategoriesButton.classList.contains('visible')) {
         scrollToCategoriesButton.classList.toggle('visible');
     }
-};
+}
 
 function scrollToTarget(targetId) {
     const targetElement = document.getElementById(targetId);
