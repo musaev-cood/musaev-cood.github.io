@@ -15,7 +15,7 @@ function cartToString() {
         return cart.map(item =>
             `Название: ${item.name}, Цена: ${item.price} ₽, Количество: ${item.quantity}`
         ).join('\n');
-
+}
 	
 function cartDispatcher() {
     const footer = document.querySelector('footer');
