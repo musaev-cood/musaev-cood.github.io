@@ -7,8 +7,8 @@ let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
     try {
-        let textW = cart.map(item =>`Название: ${item.name}, Цена: ${item.price} ₽, Количество: ${item.quantity}`).join('\n');
-        WebApp.sendData(textW);
+        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
+        WebApp.sendData(cartString);
     }catch (error){
         WebApp.showAlert("Ошибка!");
     }
