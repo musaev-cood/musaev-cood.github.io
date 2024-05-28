@@ -7,18 +7,12 @@ let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
     try {
-        let textW = cartToString();
+        let textW = cart.map(item =>`Название: ${item.name}, Цена: ${item.price} ₽, Количество: ${item.quantity}`).join('\n');
         WebApp.sendData(textW);
     }catch (error){
         WebApp.showAlert("Ошибка!");
     }
 });
-
-function cartToString() {
-    return cart.map(item =>
-        `Название: ${item.name}, Цена: ${item.price} ₽, Количество: ${item.quantity}`
-    ).join('\n');
-}
 
 function cartDispatcher() {
     const footer = document.querySelector('footer');
