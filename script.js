@@ -6,8 +6,9 @@ let cart = [];
 let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
+    let textW = "Dada";
     WebApp.showAlert("Вот что в нём хранится");
-    WebApp.sendData("GoyMarket".concat(cartToString());
+    WebApp.sendData(textW);
     // WebApp.showAlert("Вот что в нём хранится " + cartToString() + " и всё)" );
 });
 
