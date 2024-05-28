@@ -3,6 +3,10 @@ WebApp.expand()
 MainButton = WebApp.MainButton
 MainButton.setText('ЗАКАЗАТЬ')
 
+WebApp.onEvent('mainButtonClicked', function(){
+	WebApp.sendData("some string that we need to send");
+});
+
 let cart = [];
 let isFirstProductAdded = true;
 
