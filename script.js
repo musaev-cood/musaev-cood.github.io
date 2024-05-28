@@ -6,8 +6,8 @@ let cart = [];
 let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
-    let textW = cartToString();
     try {
+        let textW = cartToString();
         WebApp.sendData(textW);
     }catch (error){
         WebApp.showAlert("Ошибка!");
