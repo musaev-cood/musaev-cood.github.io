@@ -1,6 +1,11 @@
 let WebApp = window.Telegram.WebApp;
 WebApp.expand()
-WebApp.MainButton.setText('ЗАКАЗАТЬ')
+MainButton = WebApp.MainButton
+MainButton.setText('ЗАКАЗАТЬ')
+
+MainButton.onClick(function() {
+  WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
+});
 
 let cart = [];
 let isFirstProductAdded = true;
