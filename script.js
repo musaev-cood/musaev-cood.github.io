@@ -5,6 +5,7 @@ MainButton.setText('ЗАКАЗАТЬ')
 
 WebApp.onEvent('mainButtonClicked', function(){
 	WebApp.sendData("some string that we need to send");
+	WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
 });
 
 let cart = [];
