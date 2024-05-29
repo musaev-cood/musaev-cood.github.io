@@ -1,31 +1,51 @@
 let WebApp = window.Telegram.WebApp;
 WebApp.expand();
 MainButton = WebApp.MainButton;
+BackButton = WebApp.BackButton;
+BackButton.show();
 MainButton.setText('КОРЗИНА');
-let nav = "КОРЗИНА";
+let nav = 'КОРЗИНА'
 let cart = [];
 let isFirstProductAdded = true;
 
 function OpenCartButton(element) {
-    var cart = document.getElementById('cart');
-        cart.classList.toggle('hidden');
-        cart.classList.toggle('visible');
-        updateCartDisplay();
+    updateCartDisplay();
+    if(nav === "КОРЗИНА"){
+        var cart_user = document.getElementById('cart');
+        cart_user.classList.toggle('hidden');
+        cart_user.classList.toggle('visible');
+        nav = 'ЗАКАЗАТЬ'
+    }else{
+        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
+        WebApp.sendData(cartString);
+        nav = 'КОРЗИНА'
+    }
 }
 
+BackButton.onClick(function() {
+    WebApp.showAlert("BackButton clicked");
+    BackButton.hide();
+});
+
+WebApp.onEvent('backButtonClicked', function() {
+    var cart_user = document.getElementById('cart');
+    cart_user.classList.toggle('hidden');
+    cart_user.classList.toggle('visible');
+});
+
 WebApp.onEvent('mainButtonClicked', function(){
+    updateCartDisplay();
     if(nav === "КОРЗИНА"){
-        var cart = document.getElementById('cart');
-        cart.classList.toggle('hidden');
-        cart.classList.toggle('visible');
-        updateCartDisplay();
+        var cart_user = document.getElementById('cart');
+        cart_user.classList.toggle('hidden');
+        cart_user.classList.toggle('visible');
         MainButton.setText('ЗАКАЗАТЬ');
-        nav = "ЗАКАЗАТЬ";
+        nav = 'ЗАКАЗАТЬ'
     }else{
         const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
         WebApp.sendData(cartString);
         MainButton.setText('КОРЗИНА');
-        nav = "КОРЗИНА";
+        nav = 'КОРЗИНА'
     }
 });
 
