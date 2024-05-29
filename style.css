@@ -323,6 +323,7 @@ body{
 }
 
 .cart {
+    z-index: 3;
     position: fixed;
     bottom: -100%;
     left: 0;
