@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <title>GoyMarket</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="script.js"></script>
@@ -381,10 +381,12 @@
         <div class="empty-space"></div>
     </div>
 
-    <div id="user-cart" class="cart hidden">
+    <button id="toggle-cart" class="open-cart-button" onclick=OpenCartButton(this)>Открыть корзину</button>
+    <div id="cart" class="cart hidden">
         <h2>Ваша корзина</h2>
         <p>Товар 1</p>
         <p>Товар 2</p>
+        <!-- Здесь могут быть другие товары -->
     </div>
 </body>
 </html>
