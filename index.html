@@ -383,10 +383,18 @@
 
     <button id="toggle-cart" class="open-cart-button" onclick=OpenCartButton(this)>Открыть корзину</button>
     <div id="cart" class="cart hidden">
-        <h2>Ваша корзина</h2>
+        <div class="cart-header">
+            <h2>Ваша корзина</h2>
+            <button id="edit-cart">Изменить</button>
+        </div>
         <div id="cart-items">
             <!-- Товары будут добавляться здесь -->
         </div>
+        <div class="cart-footer">
+            <h3>Мой заказ</h3>
+            <!-- Содержание заказа будет добавляться здесь -->
+        </div>
+        <textarea placeholder="Комментарий к заказу"></textarea>
     </div>
 </body>
 </html>
