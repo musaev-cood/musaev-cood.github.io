@@ -7,25 +7,6 @@ let nav = 'КОРЗИНА'
 let cart = [];
 let isFirstProductAdded = true;
 
-function OpenCartButton() {
-    updateCartDisplay();
-    if(nav === "КОРЗИНА"){
-        const cart_user = document.getElementById('cart');
-        cart_user.classList.toggle('hidden');
-        cart_user.classList.toggle('visible');
-        nav = 'ЗАКАЗАТЬ'
-    }else{
-        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
-        WebApp.sendData(cartString);
-        nav = 'КОРЗИНА'
-    }
-}
-
-BackButton.onClick(function() {
-    WebApp.showAlert("BackButton clicked");
-    BackButton.hide();
-});
-
 WebApp.onEvent('backButtonClicked', function() {
     const cartElement = document.getElementById('cart');
     cartElement.classList.remove('visible');
@@ -34,13 +15,12 @@ WebApp.onEvent('backButtonClicked', function() {
 
 WebApp.onEvent('mainButtonClicked', function(){
     updateCartDisplay();
-    BackButton.show();
     if(nav === "КОРЗИНА"){
         const cartElement = document.getElementById('cart');
         cartElement.classList.remove('hidden');
         cartElement.classList.add('visible');
 
-        MainButton.setText('ЗАКАЗАТЬ');
+        MainButton.setText('ЗАКАЗАААТЬ');
         nav = 'ЗАКАЗАТЬ'
     }else{
         const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
