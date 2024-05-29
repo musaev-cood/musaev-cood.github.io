@@ -5,11 +5,17 @@ MainButton.setText('ЗАКАЗАТЬ');
 let cart = [];
 let isFirstProductAdded = true;
 
+function OpenCartButton(element) {
+    var cart = document.getElementById('cart');
+        cart.classList.toggle('hidden');
+        cart.classList.toggle('visible');
+}
+
 WebApp.onEvent('mainButtonClicked', function(){
     try {
-        let korzina = document.getElementById('user-cart');
-        korzina.classList.toggle('hidden');
-        korzina.classList.toggle('visible');
+        var cart = document.getElementById('cart');
+        cart.classList.toggle('hidden');
+        cart.classList.toggle('visible');
 
     }catch (error){
         WebApp.showAlert("Ошибка!");
