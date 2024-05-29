@@ -2,6 +2,7 @@ let WebApp = window.Telegram.WebApp;
 WebApp.expand();
 MainButton = WebApp.MainButton;
 MainButton.setText('КОРЗИНА');
+let nav = "КОРЗИНА";
 let cart = [];
 let isFirstProductAdded = true;
 
@@ -13,17 +14,18 @@ function OpenCartButton(element) {
 }
 
 WebApp.onEvent('mainButtonClicked', function(){
-    WebApp.showAlert(MainButton.gettext());
-    if(NameButton === "КОРЗИНА"){
+    if(nav === "КОРЗИНА"){
         var cart = document.getElementById('cart');
         cart.classList.toggle('hidden');
         cart.classList.toggle('visible');
         updateCartDisplay();
         MainButton.setText('ЗАКАЗАТЬ');
+        nav = "ЗАКАЗАТЬ";
     }else{
         const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
         WebApp.sendData(cartString);
         MainButton.setText('КОРЗИНА');
+        nav = "КОРЗИНА";
     }
 });
 
