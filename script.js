@@ -7,8 +7,8 @@ let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
     try {
-        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
-        WebApp.sendData(cartString);
+        // const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
+        // WebApp.sendData(cartString);
 
         var korzina = document.getElementById('cart');
         korzina.classList.toggle('hidden');
