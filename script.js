@@ -13,8 +13,7 @@ function OpenCartButton(element) {
 }
 
 WebApp.onEvent('mainButtonClicked', function(){
-    WebApp.showAlert("5555");
-    WebApp.showAlert("13323");
+    WebApp.showAlert(MainButton.gettext());
     if(NameButton === "КОРЗИНА"){
         var cart = document.getElementById('cart');
         cart.classList.toggle('hidden');
