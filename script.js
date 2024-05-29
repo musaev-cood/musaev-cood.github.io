@@ -14,6 +14,7 @@ function OpenCartButton(element) {
 
 WebApp.onEvent('mainButtonClicked', function(){
     let NameButton = MainButton.getText().toString();
+    WebApp.showAlert(NameButton);
     if(NameButton === "КОРЗИНА"){
         var cart = document.getElementById('cart');
         cart.classList.toggle('hidden');
