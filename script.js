@@ -7,10 +7,10 @@ let isFirstProductAdded = true;
 
 WebApp.onEvent('mainButtonClicked', function(){
     try {
-        var korzina = document.getElementById('korzina');
+        let korzina = document.getElementById('user-cart');
         korzina.classList.toggle('hidden');
         korzina.classList.toggle('visible');
-        
+
     }catch (error){
         WebApp.showAlert("Ошибка!");
     }
