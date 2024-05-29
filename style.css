@@ -284,7 +284,7 @@ footer {
 
 #scrollToCategoriesButton::before {
     content: '\25B2';
-    font-size: 40px;
+    font-size: 40px; /* Размер шрифта для стрелки */
     color: #ffffff;
 }
 
@@ -327,8 +327,8 @@ body{
     position: fixed;
     left: 0;
     right: 0;
-    top: 0;
-    height: 100%;
+    top: 100%; /* Изначально скрыто */
+    height: 100%; /* Занимает всю высоту экрана */
     background-color: #fff;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -342,7 +342,7 @@ body{
 }
 
 .cart.visible {
-    top: 100%;
+    top: 0;
 }
 
 #cart-items p {
