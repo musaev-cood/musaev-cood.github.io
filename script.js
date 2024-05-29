@@ -1,7 +1,7 @@
 let WebApp = window.Telegram.WebApp;
 WebApp.expand();
 MainButton = WebApp.MainButton;
-MainButton.setText('ЗАКАЗАТЬ');
+MainButton.setText('КОРЗИНА');
 let cart = [];
 let isFirstProductAdded = true;
 
@@ -9,18 +9,33 @@ function OpenCartButton(element) {
     var cart = document.getElementById('cart');
         cart.classList.toggle('hidden');
         cart.classList.toggle('visible');
+        updateCartDisplay();
 }
 
 WebApp.onEvent('mainButtonClicked', function(){
-    try {
+    let NameButton = MainButton.getText().toString();
+    if(NameButton === "КОРЗИНА"){
         var cart = document.getElementById('cart');
         cart.classList.toggle('hidden');
         cart.classList.toggle('visible');
-
-    }catch (error){
-        WebApp.showAlert("Ошибка!");
+        updateCartDisplay();
+        MainButton.setText('ЗАКАЗАТЬ');
+    }else{
+        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
+        WebApp.sendData(cartString);
+        MainButton.setText('КОРЗИНА');
     }
 });
+
+function updateCartDisplay() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+    cart.forEach(item => {
+        const itemElement = document.createElement('p');
+        itemElement.textContent = `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`;
+        cartItemsContainer.appendChild(itemElement);
+    });
+}
 
 function cartDispatcher() {
     const footer = document.querySelector('footer');
