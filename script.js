@@ -22,9 +22,9 @@ function OpenCartButton() {
 }
 
 WebApp.onEvent('backButtonClicked', function() {
-    nav = 'ЗАКАЗАТЬ'
+    nav = 'КОРЗИНА'
     BackButton.hide();
-    MainButton.setText('ЗАКАЗАТЬ');
+    MainButton.setText('КОРЗИНА');
     const cartElement = document.getElementById('cart');
     cartElement.classList.remove('visible');
     cartElement.classList.add('hidden');
@@ -77,7 +77,7 @@ function cartDispatcher() {
 }
 
 function AddNewProduct(productName, productPrice){
-    if (('ontouchstart' in window || navigator.maxTouchPoints) && isFirstProductAdded) {
+    if (('ontouchstart' in window || navigator.maxTouchPoints) && isFirstProductAdded && productPrice < 400) {
             WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
             'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
             isFirstProductAdded = false;
