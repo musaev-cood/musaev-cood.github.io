@@ -2,16 +2,15 @@ let WebApp = window.Telegram.WebApp;
 WebApp.expand();
 MainButton = WebApp.MainButton;
 BackButton = WebApp.BackButton;
-BackButton.show();
 MainButton.setText('КОРЗИНА');
 let nav = 'КОРЗИНА'
 let cart = [];
 let isFirstProductAdded = true;
 
-function OpenCartButton(element) {
+function OpenCartButton() {
     updateCartDisplay();
     if(nav === "КОРЗИНА"){
-        var cart_user = document.getElementById('cart');
+        const cart_user = document.getElementById('cart');
         cart_user.classList.toggle('hidden');
         cart_user.classList.toggle('visible');
         nav = 'ЗАКАЗАТЬ'
@@ -28,17 +27,19 @@ BackButton.onClick(function() {
 });
 
 WebApp.onEvent('backButtonClicked', function() {
-    var cart_user = document.getElementById('cart');
-    cart_user.classList.toggle('hidden');
-    cart_user.classList.toggle('visible');
+    const cartElement = document.getElementById('cart');
+    cartElement.classList.remove('visible');
+    cartElement.classList.add('hidden');
 });
 
 WebApp.onEvent('mainButtonClicked', function(){
     updateCartDisplay();
+    BackButton.show();
     if(nav === "КОРЗИНА"){
-        var cart_user = document.getElementById('cart');
-        cart_user.classList.toggle('hidden');
-        cart_user.classList.toggle('visible');
+        const cartElement = document.getElementById('cart');
+        cartElement.classList.remove('hidden');
+        cartElement.classList.add('visible');
+
         MainButton.setText('ЗАКАЗАТЬ');
         nav = 'ЗАКАЗАТЬ'
     }else{
