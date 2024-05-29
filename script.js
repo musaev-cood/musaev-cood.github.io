@@ -9,6 +9,11 @@ WebApp.onEvent('mainButtonClicked', function(){
     try {
         const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
         WebApp.sendData(cartString);
+
+        var korzina = document.getElementById('cart');
+        korzina.classList.toggle('hidden');
+        korzina.classList.toggle('visible');
+        
     }catch (error){
         WebApp.showAlert("Ошибка!");
     }
