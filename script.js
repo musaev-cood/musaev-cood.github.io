@@ -13,7 +13,8 @@ function OpenCartButton(element) {
 }
 
 WebApp.onEvent('mainButtonClicked', function(){
-    let NameButton = MainButton.getText().toString();
+    WebApp.showAlert("123");
+    let NameButton = MainButton.getText();
     WebApp.showAlert(NameButton);
     if(NameButton === "КОРЗИНА"){
         var cart = document.getElementById('cart');
