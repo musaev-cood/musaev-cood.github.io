@@ -9,12 +9,10 @@ let isFirstProductAdded = true;
 const deliveryCost = 150;
 function disableScroll() {
     document.body.style.overflow = 'hidden';
-    document.body.classList.add('no-scroll');
 }
 
 function enableScroll() {
     document.body.style.overflow = 'auto';
-    document.body.classList.remove('no-scroll');
 }
 
 function GetCartString(){
@@ -90,6 +88,10 @@ document.addEventListener('click', function(event) {
             }
         });
     });
+
+WebApp.onEvent('web_app_setup_closing_behavior', function (){
+    WebApp.showAlert('Пока', 'Точно')
+});
 
 WebApp.onEvent('mainButtonClicked', function(){
     updateCartDisplay();
