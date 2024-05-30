@@ -6,7 +6,7 @@ MainButton.setText('КОРЗИНА');
 let nav = 'КОРЗИНА'
 let cart = [];
 let isFirstProductAdded = true;
-
+const deliveryCost = 150;
 function disableScroll() {
         document.body.style.overflow = 'hidden'; // Блокировка прокрутки
     }
@@ -15,6 +15,15 @@ function enableScroll() {
     document.body.style.overflow = ''; // Разблокировка прокрутки
 }
 
+function GetCartString(){
+    const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const totalWithDelivery = totalCost + deliveryCost;
+    const cartString = cart.map((item, index) =>
+      `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
+    ).join('\n\n') + `\n\nСумма с доставкой ${totalWithDelivery} ₽`;
+    return cartString.toString()
+
+}
 function OpenCartButton(){
     disableScroll()
     updateCartDisplay();
@@ -34,6 +43,7 @@ function EditCart() {
 
     BackButton.hide();
     MainButton.setText('КОРЗИНА');
+
 }
 
 WebApp.onEvent('backButtonClicked', function() {
@@ -59,16 +69,7 @@ WebApp.onEvent('mainButtonClicked', function(){
         BackButton.show();
     }else{
         nav = 'КОРЗИНА'
-        const deliveryCost = 150;
-
-        const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const totalWithDelivery = totalCost + deliveryCost;
-        const cartString = cart.map((item, index) =>
-          `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
-        ).join('\n\n') + `\n\nСумма с доставкой ${totalWithDelivery} ₽`;
-
-        WebApp.sendData(cartString);
-
+        WebApp.sendData(GetCartString());
         MainButton.setText('КОРЗИНА');
     }
 });
@@ -78,7 +79,7 @@ function updateCartDisplay() {
     orderContainer.innerHTML = '';
 
     const allSumPriceElement = document.querySelector('.AllSumPrice');
-    allSumPriceElement.innerText = "Общая сумма с учётом доставки: 150 ₽";
+    allSumPriceElement.innerText = `Общая сумма с учётом доставки: ${deliveryCost} ₽`;
 
     cart.forEach(item => {
         const orderItem = document.createElement('div');
