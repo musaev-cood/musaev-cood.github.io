@@ -65,10 +65,10 @@ WebApp.onEvent('mainButtonClicked', function(){
         ).join('\n\n');
         const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const totalWithDelivery = totalCost + deliveryCost;
-        const result = `${cartString}\n\nСумма с доставкой ${totalWithDelivery} ₽` 
+        const result = `${cartString}\n\nСумма с доставкой ${totalWithDelivery} ₽`
         // const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
         WebApp.sendData(result);
-        
+
         MainButton.setText('КОРЗИНА');
     }
 });
@@ -123,8 +123,6 @@ function cartDispatcher() {
         scrollToCategoriesButton.style.bottom = '50px';
         WebApp.MainButton.hide()
     }
-
-    console.log()
 }
 
 function AddNewProduct(productURL ,productName, productPrice){
@@ -168,7 +166,6 @@ function AddToCartButton(element) {
     let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
 
     if (currentQuantity === 0) {
-        console.log(productURL)
         AddNewProduct(productURL, productName, productPrice); //AddNewProduct
 
         quantityElement.classList.add('fade-in');
