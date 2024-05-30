@@ -315,6 +315,10 @@ body{
     overflow: auto;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 #toggle-cart {
     margin-bottom: 20px;
     padding: 10px 20px;
