@@ -8,21 +8,26 @@ let cart = [];
 let isFirstProductAdded = true;
 const deliveryCost = 150;
 function disableScroll() {
-        document.body.style.overflow = 'hidden'; // Блокировка прокрутки
+        document.body.style.overflow = 'hidden';
     }
 
 function enableScroll() {
-    document.body.style.overflow = ''; // Разблокировка прокрутки
+    document.body.style.overflow = '';
 }
 
 function GetCartString(){
     const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const totalWithDelivery = totalCost + deliveryCost;
+    const comment = document.getElementById('orderComment').value;
+    const customerNumber = document.getElementById('phoneNumber').value.toString();
+    const deliveryAddress = document.getElementById('adresuser').value.toString();
+    
     const cartString = cart.map((item, index) =>
       `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
     ).join('\n\n') + `\n\nСумма с доставкой ${totalWithDelivery} ₽`;
-    return cartString.toString()
 
+    const orderString = `${cartString}\n\nКомментарий к заказу:\n${comment}\nНомер покупателя:\n${customerNumber}\n\nАдрес доставки:\n${deliveryAddress}`;
+    return orderString.toString()
 }
 function OpenCartButton(){
     disableScroll()
@@ -33,6 +38,8 @@ function OpenCartButton(){
     cartElement.classList.add('visible');
 
     MainButton.setText('ЗАКАЗАТЬ');
+
+    
 }
 function EditCart() {
     enableScroll()
@@ -50,6 +57,7 @@ WebApp.onEvent('backButtonClicked', function() {
     enableScroll()
     nav = 'КОРЗИНА'
     BackButton.hide();
+    MainButton.show();
     MainButton.setText('КОРЗИНА');
     const cartElement = document.getElementById('cart');
     cartElement.classList.remove('visible');
@@ -67,6 +75,41 @@ WebApp.onEvent('mainButtonClicked', function(){
         nav = 'ЗАКАЗАТЬ'
         MainButton.setText('ЗАКАЗАТЬ');
         BackButton.show();
+        MainButton.hide();
+        document.getElementById('phoneNumber').addEventListener('input', function() {
+            const phoneNumber = event.target.value.replace(/\D/g, '');
+    
+            if (phoneNumber === '') {
+                event.target.value = '+7';
+            } else {
+                if (!phoneNumber.startsWith('7')) {
+                    event.target.value = '+7' + phoneNumber.substring(1);
+                }
+            }
+            UpdateOrderButton();
+        });
+        document.getElementById('phoneNumber').addEventListener('keypress', function(event) {
+            const key = event.key;
+    
+            if (isNaN(parseInt(key))) {
+                event.preventDefault();
+            }
+        });
+    
+        document.getElementById('adresuser').addEventListener('input', function() {
+            UpdateOrderButton();
+        });
+
+        function UpdateOrderButton(){
+            const userNumber = document.getElementById('phoneNumber').value.toString();
+            const userAdres = document.getElementById('adresuser').value.toString();
+    
+            if(userAdres.length > 4 && userNumber.length === 12){
+                MainButton.show();
+            }else{
+                MainButton.hide();
+            }
+        }
     }else{
         nav = 'КОРЗИНА'
         WebApp.sendData(GetCartString());
@@ -169,7 +212,7 @@ function AddToCartButton(element) {
     let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
 
     if (currentQuantity === 0) {
-        AddNewProduct(productURL, productName, productPrice); //AddNewProduct
+        AddNewProduct(productURL, productName, productPrice);
 
         quantityElement.classList.add('fade-in');
         setTimeout(() => {
