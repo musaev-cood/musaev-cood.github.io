@@ -75,9 +75,11 @@ WebApp.onEvent('mainButtonClicked', function(){
 
 function updateCartDisplay() {
     const orderContainer = document.getElementById('cart-container');
-    orderContainer.innerHTML = ''; // Очищаем контейнер перед обновлением
+    orderContainer.innerHTML = '';
+
     const allSumPriceElement = document.querySelector('.AllSumPrice');
     allSumPriceElement.innerText = "Общая сумма с учётом доставки: 150 ₽";
+
     cart.forEach(item => {
         const orderItem = document.createElement('div');
         orderItem.classList.add('order-item');
