@@ -59,6 +59,16 @@ WebApp.onEvent('mainButtonClicked', function(){
         BackButton.show();
     }else{
         nav = 'КОРЗИНА'
+        const deliveryCost = 150;
+
+        const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const totalWithDelivery = totalCost + deliveryCost;
+        const cartString = cart.map((item, index) =>
+          `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
+        ).join('\n\n') + `\n\nСумма с доставкой ${totalWithDelivery} ₽`;
+
+        WebApp.sendData(cartString);
+
         MainButton.setText('КОРЗИНА');
     }
 });
