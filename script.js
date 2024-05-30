@@ -88,16 +88,6 @@ document.addEventListener('click', function(event) {
             }
         });
     });
-WebApp.onEvent('closing', function() {
-    const confirmation = confirm("Вы действительно хотите закрыть приложение?");
-    if (!confirmation) {
-        // Останавливаем закрытие приложения
-        Telegram.WebApp.expand();
-    } else {
-        // Разрешаем закрытие приложения
-        Telegram.WebApp.close();
-    }
-});
 
 WebApp.onEvent('mainButtonClicked', function(){
     updateCartDisplay();
