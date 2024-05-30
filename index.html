@@ -393,9 +393,18 @@
         <div class="comment-section">
             <div class="AllSumPrice">Общая сумма с учётом доставки: 0</div>
             <label>
-                <textarea placeholder="Написать комментарий..."></textarea>
+                <textarea id="orderComment" placeholder="Написать комментарий..."></textarea>
             </label>
-            <p>Тут вы можете написать пожелания, детали, для полного оформления заказа.</p>
+            <p>Здесь вы можете предоставить пожелания и детали для оформления заказа.</p>
+        </div>
+        <div class="number-section">
+            <input class= "phone-number" type="tel" id="phoneNumber" pattern="[0-9]{12}" maxlength="12" placeholder="+7" value="+7">
+            <p>Напишите номер телефона получателя заказа.</p>
+        </div>
+
+        <div class="adres-section">
+            <input class="adres" type="text" id="adresuser" placeholder="Введите адрес доставки...">
+            <p>Напишите ваш адрес для доставки вашего заказа.</p>
         </div>
     </div>
 </body>
