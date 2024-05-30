@@ -59,8 +59,16 @@ WebApp.onEvent('mainButtonClicked', function(){
         BackButton.show();
     }else{
         nav = 'КОРЗИНА'
-        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
-        WebApp.sendData(cartString);
+        const deliveryCost = 150;
+        const cartString = cart.map((item, index) =>
+          `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
+        ).join('\n\n');
+        const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const totalWithDelivery = totalCost + deliveryCost;
+        const result = `${cartString}\n\nСумма с доставкой ${totalWithDelivery} ₽` 
+        // const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
+        WebApp.sendData(result);
+        
         MainButton.setText('КОРЗИНА');
     }
 });
@@ -69,7 +77,7 @@ function updateCartDisplay() {
     const orderContainer = document.getElementById('cart-container');
     orderContainer.innerHTML = ''; // Очищаем контейнер перед обновлением
     const allSumPriceElement = document.querySelector('.AllSumPrice');
-    allSumPriceElement.innerText = "Общая сумма с учётом доставки: 0";
+    allSumPriceElement.innerText = "Общая сумма с учётом доставки: 150 ₽";
     cart.forEach(item => {
         const orderItem = document.createElement('div');
         orderItem.classList.add('order-item');
@@ -97,7 +105,7 @@ function updateCartDisplay() {
 
         const number = parseFloat(allSumPriceElement.textContent.match(/\d+/)[0]);
 
-        allSumPriceElement.innerText = `Общая сумма с учётом доставки: ${number+item.price}`;
+        allSumPriceElement.innerText = `Общая сумма с учётом доставки: ${number+(item.price*item.quantity)} ₽`;
     });
 }
 
@@ -119,12 +127,6 @@ function cartDispatcher() {
     console.log()
 }
 
-function isMobile() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    // Проверяем наличие ключевых слов, связанных с мобильными устройствами
-    return /android|avantgo|blackberry|bb|meego|ipad|ipod|iphone|palm|phone|smartphone|symbian|webos|iemobile|opera mini|windows phone|tablet|kindle|silk|mobile/i.test(userAgent);
-}
 function AddNewProduct(productURL ,productName, productPrice){
     if (('ontouchstart' in window || navigator.maxTouchPoints) && isFirstProductAdded && productPrice > 40000) {
             WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
