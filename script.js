@@ -7,21 +7,37 @@ let nav = 'КОРЗИНА'
 let cart = [];
 let isFirstProductAdded = true;
 
-function OpenCartButton() {
-    updateCartDisplay();
-    if(nav === "КОРЗИНА"){
-        const cart_user = document.getElementById('cart');
-        cart_user.classList.toggle('hidden');
-        cart_user.classList.toggle('visible');
-        nav = 'ЗАКАЗАТЬ'
-    }else{
-        const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
-        WebApp.sendData(cartString);
-        nav = 'КОРЗИНА'
+function disableScroll() {
+        document.body.style.overflow = 'hidden'; // Блокировка прокрутки
     }
+
+function enableScroll() {
+    document.body.style.overflow = ''; // Разблокировка прокрутки
+}
+
+function OpenCartButton(){
+    disableScroll()
+    updateCartDisplay();
+    nav = 'ЗАКАЗАТЬ'
+    const cartElement = document.getElementById('cart');
+    cartElement.classList.remove('hidden');
+    cartElement.classList.add('visible');
+
+    MainButton.setText('ЗАКАЗАТЬ');
+}
+function EditCart() {
+    enableScroll()
+    nav = 'КОРЗИНА'
+    const cartElement = document.getElementById('cart');
+    cartElement.classList.remove('visible');
+    cartElement.classList.add('hidden');
+
+    BackButton.hide();
+    MainButton.setText('КОРЗИНА');
 }
 
 WebApp.onEvent('backButtonClicked', function() {
+    enableScroll()
     nav = 'КОРЗИНА'
     BackButton.hide();
     MainButton.setText('КОРЗИНА');
@@ -32,29 +48,49 @@ WebApp.onEvent('backButtonClicked', function() {
 
 WebApp.onEvent('mainButtonClicked', function(){
     updateCartDisplay();
-    BackButton.show();
     if(nav === "КОРЗИНА"){
+        disableScroll()
         const cartElement = document.getElementById('cart');
         cartElement.classList.remove('hidden');
         cartElement.classList.add('visible');
 
-        MainButton.setText('ЗАКАЗАТЬ');
         nav = 'ЗАКАЗАТЬ'
+        MainButton.setText('ЗАКАЗАТЬ');
+        BackButton.show();
     }else{
+        nav = 'КОРЗИНА'
         const cartString = cart.map(item => `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`).join('\n');
         WebApp.sendData(cartString);
         MainButton.setText('КОРЗИНА');
-        nav = 'КОРЗИНА'
     }
 });
 
 function updateCartDisplay() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
+    const orderContainer = document.getElementById('cart-container');
+    orderContainer.innerHTML = ''; // Очищаем контейнер перед обновлением
+
     cart.forEach(item => {
-        const itemElement = document.createElement('p');
-        itemElement.textContent = `Продукт: "${item.name}", Цена: ${item.price} ₽, Кол-во: ${item.quantity}`;
-        cartItemsContainer.appendChild(itemElement);
+        const orderItem = document.createElement('div');
+        orderItem.classList.add('order-item');
+
+        const img = document.createElement('img');
+        img.src = item.ProductURL;
+        orderItem.appendChild(img);
+
+        const itemInfo = document.createElement('div');
+        itemInfo.classList.add('item-info');
+        const itemName = document.createElement('p');
+        itemName.textContent = `"${item.name}", ${item.quantity} шт.`;
+        itemInfo.appendChild(itemName);
+        orderItem.appendChild(itemInfo);
+
+        const itemPrice = document.createElement('div');
+        itemPrice.classList.add('item-price');
+        itemPrice.id = 'price-item';
+        itemPrice.innerHTML = `${item.price} <span>₽</span>`;
+        orderItem.appendChild(itemPrice);
+
+        orderContainer.appendChild(orderItem);
     });
 }
 
@@ -76,13 +112,20 @@ function cartDispatcher() {
     console.log()
 }
 
-function AddNewProduct(productName, productPrice){
-    if (('ontouchstart' in window || navigator.maxTouchPoints) && isFirstProductAdded && productPrice < 400) {
+function isMobile() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Проверяем наличие ключевых слов, связанных с мобильными устройствами
+    return /android|avantgo|blackberry|bb|meego|ipad|ipod|iphone|palm|phone|smartphone|symbian|webos|iemobile|opera mini|windows phone|tablet|kindle|silk|mobile/i.test(userAgent);
+}
+function AddNewProduct(productURL ,productName, productPrice){
+    if (('ontouchstart' in window || navigator.maxTouchPoints) && isFirstProductAdded && productPrice > 40000) {
             WebApp.showAlert('Привет, друг! У нас можно заказать от 400 ₽.\n' +
             'Кнопка \'Заказать\' появится, как только ты наберешь продукты в корзину.')
             isFirstProductAdded = false;
         }
     cart.push({
+            ProductURL: productURL,
             name: productName,
             price: productPrice,
             quantity: 1
@@ -104,7 +147,9 @@ function AddToCartButton(element) {
 
     const deleteButton = element.nextElementSibling;
     const quantityElement = element.nextElementSibling.nextElementSibling;
+    const productElement = element.closest('.product');
 
+    const productURL = productElement.querySelector('.product-URL').src;
     const productName = element.parentElement.querySelector('.product-title').textContent;
     const productPrice = parseFloat(element.parentElement.querySelector('.product-price').textContent);
 
@@ -114,7 +159,8 @@ function AddToCartButton(element) {
     let currentQuantity = parseInt(quantityElement.textContent, 10) || 0;
 
     if (currentQuantity === 0) {
-        AddNewProduct(productName, productPrice); //AddNewProduct
+        console.log(productURL)
+        AddNewProduct(productURL, productName, productPrice); //AddNewProduct
 
         quantityElement.classList.add('fade-in');
         setTimeout(() => {
