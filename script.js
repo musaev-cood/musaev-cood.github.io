@@ -12,7 +12,7 @@ function disableScroll() {
 }
 
 function enableScroll() {
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'auto';
 }
 
 function GetCartString(){
@@ -78,6 +78,16 @@ function EditCart() {
 WebApp.onEvent('backButtonClicked', function() {
     EditCart();
 });
+
+document.addEventListener('click', function(event) {
+        const target = event.target;
+        const textInputs = document.querySelectorAll('input[type="text"], input[type="tel"], textarea');
+        textInputs.forEach(function(input) {
+            if (!input.contains(target)) {
+                input.blur();
+            }
+        });
+    });
 
 WebApp.onEvent('mainButtonClicked', function(){
     updateCartDisplay();
