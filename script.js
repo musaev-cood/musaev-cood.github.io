@@ -68,7 +68,8 @@ WebApp.onEvent('mainButtonClicked', function(){
 function updateCartDisplay() {
     const orderContainer = document.getElementById('cart-container');
     orderContainer.innerHTML = ''; // Очищаем контейнер перед обновлением
-
+    const allSumPriceElement = document.querySelector('.AllSumPrice');
+    allSumPriceElement.innerText = "Общая сумма с учётом доставки: 0";
     cart.forEach(item => {
         const orderItem = document.createElement('div');
         orderItem.classList.add('order-item');
@@ -91,6 +92,12 @@ function updateCartDisplay() {
         orderItem.appendChild(itemPrice);
 
         orderContainer.appendChild(orderItem);
+
+        const allSumPriceElement = document.querySelector('.AllSumPrice');
+
+        const number = parseFloat(allSumPriceElement.textContent.match(/\d+/)[0]);
+
+        allSumPriceElement.innerText = `Общая сумма с учётом доставки: ${number+item.price}`;
     });
 }
 
