@@ -22,15 +22,15 @@ function GetCartString(){
     const customerNumber = document.getElementById('phoneNumber').value.toString();
     const deliveryAddress = document.getElementById('adresuser').value.toString();
     
-    const userName = WebApp.initDataUnsafe.user.username.toString();
-    const userID = WebApp.initDataUnsafe.user.id.toString();
-    const StartMessage = `!НОВЫЙ ЗАКАЗ!\nот @${userName}\nID - ${userID}\n`;
+    const userName = WebApp.initData.user.username.toString();
+    const userID = WebApp.initData.user.id.toString();
+    const StartMessage = `!НОВЫЙ ЗАКАЗ!\nот @${userName}\nID - ${userID}\n\n`;
 
     const cartString = cart.map((item, index) =>
       `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
     ).join('\n\n') + `\n\nСумма с доставкой ${totalWithDelivery} ₽`;
 
-    const orderString = `${StartMessage}\n${cartString}\n\nКомментарий к заказу:\n${comment}\n\nНомер покупателя:\n${customerNumber}\n\nАдрес доставки:\n${deliveryAddress}`;
+    const orderString = `${StartMessage}${cartString}\n\nКомментарий к заказу:\n${comment}\n\nНомер покупателя:\n${customerNumber}\n\nАдрес доставки:\n${deliveryAddress}`;
     return orderString.toString()
 }
 function OpenCartButton(){
