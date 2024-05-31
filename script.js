@@ -21,12 +21,15 @@ function GetCartString(){
     const comment = document.getElementById('orderComment').value;
     const customerNumber = document.getElementById('phoneNumber').value.toString();
     const deliveryAddress = document.getElementById('adresuser').value.toString();
-
+    const userName = WebApp.initDataUnsafe.user.name;
+    const displayName = WebApp.initDataUnsafe.user.displayName;
+    const userID = WebApp.initDataUnsafe.user.id;
+    const StartMessage = `!НОВЫЙ ЗАКАЗ!\nот @${userName} / @${displayName}\nID - ${userID}\n\n`;
     const cartString = cart.map((item, index) =>
       `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
     ).join('\n\n') + `\n\nСумма с доставкой ${totalWithDelivery} ₽`;
 
-    const orderString = `${cartString}\n\nКомментарий к заказу:\n${comment}\nНомер покупателя:\n${customerNumber}\n\nАдрес доставки:\n${deliveryAddress}`;
+    const orderString = `${cartString}\n\nКомментарий к заказу:\n${comment}\n\nНомер покупателя:\n${customerNumber}\n\nАдрес доставки:\n${deliveryAddress}`;
     return orderString.toString()
 }
 function OpenCartButton(){
