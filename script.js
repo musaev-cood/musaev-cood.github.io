@@ -21,10 +21,9 @@ function GetCartString(){
     const comment = document.getElementById('orderComment').value;
     const customerNumber = document.getElementById('phoneNumber').value.toString();
     const deliveryAddress = document.getElementById('adresuser').value.toString();
-    
-    const userName = WebApp.initData.user.username.toString();
-    const userID = WebApp.initData.user.id.toString();
-    const StartMessage = `!НОВЫЙ ЗАКАЗ!\nот @${userName}\nID - ${userID}\n\n`;
+
+    const userName = WebApp.initData;
+    const StartMessage = `!НОВЫЙ ЗАКАЗ!\nот @${userName}\n\n`;
 
     const cartString = cart.map((item, index) =>
       `${index + 1}) "${item.name}"\nЦена: ${item.price} ₽\nКол-во: ${item.quantity}`
